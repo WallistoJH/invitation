@@ -3,34 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
+    <title>Wedding Guestbook</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
+            margin: 20px;
             background-color: #f8f9fa;
             color: #333;
         }
         h1 {
-            font-size: 2.5em;
             color: #2c3e50;
         }
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
+        form {
+            margin: 20px 0;
         }
-        .date {
-            font-weight: bold;
-            color: #e74c3c;
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .messages {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to Our Wedding!</h1>
-    <p>We are thrilled to invite you to celebrate the marriage of</p>
-    <h2>Jaehan Park & Yumi Gye</h2>
-    <p>The ceremony will be held on <span class="date">[Date]</span> at <span class="date">[Venue]</span>.</p>
-    <p>Stay tuned for more details!</p>
+    <h1>Wedding Guestbook</h1>
+    <form id="guestbookForm">
+        <textarea id="message" placeholder="Write your message here..." required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="messages" id="messages">
+        <h2>Messages</h2>
+        <!-- Messages will be displayed here -->
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyBJoFj30tCRzjty-clry4dZ8cIUu4pYyC0",
+        authDomain: "invitation-wallisto.firebaseapp.com",
+        projectId: "invitation-wallisto",
+        storageBucket: "invitation-wallisto.firebasestorage.app",
+        messagingSenderId: "484897874480",
+        appId: "1:484897874480:web:e3952ead0b42df756903f5",
+        measurementId: "G-4XQEQ646GY"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = firebase.database();
+
+        const form = document.getElementById('guestbookForm');
+        const messageInput = document.getElementById('message');
+        const messagesDiv = document.getElementById('messages');
+
+        // Submit a new message
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = messageInput.value.trim();
+            if (message) {
+                db.ref('messages').push({ text: message });
+                messageInput.value = '';
+            }
+        });
+
+        // Listen for new messages
+        db.ref('messages').on('value', (snapshot) => {
+            messagesDiv.innerHTML = `<h2>Messages</h2>`;
+            snapshot.forEach((childSnapshot) => {
+                const message = childSnapshot.val().text;
+                const p = document.createElement('p');
+                p.className = 'message';
+                p.textContent = message;
+                messagesDiv.appendChild(p);
+            });
+        });
+    </script>
+
+
+
+
+    
 </body>
 </html>
