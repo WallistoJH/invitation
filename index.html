@@ -5,21 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>결혼식 방명록</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <link href="css/guide.css" rel="stylesheet">
+    <link href="css/inv.css" rel="stylesheet">
+    <script src="js/inv.js"></script>
     <!-- 네이버 지도 API 스크립트: 클라이언트 아이디 적용 -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=zn6l3gdzlx&submodules=geocoder,directions"></script>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        h1 {
-            color: #2c3e50;
-        }
+
         form {
             margin: 20px 0;
         }
@@ -86,7 +79,30 @@
 </head>
 <body>
 
-<h5>계좌</h5>
+
+<section id="introTitle" class="font-0">
+    <article class="dis-block flu font-0">
+        <article class="dis-inline-block left-top">
+            <h4 class="h4-en--line title-en mr-0">JaehanPark</h4>
+            <h6 class="h6-kr mr-0">박재한</h6>
+        </article>
+        <article class="dis-inline-block right-top">
+            <h4 class="h4-en--line title-en mr-0">YoomeeK<span style="font-feature-settings: 'ss04' on;">y</span>e</h4>
+            <h6 class="h6-kr mr-0">계유미</h6>
+        </article>
+    </article>
+    <article class="dis-block flu font-0 bottom">
+        <h4 class="h4-en--line title-en mr-0">Wedding Invitation</h4>
+        <h6 class="h6-kr mr-0">결혼식에 초대합니다</h6>
+    </article>
+</section>
+
+<section id="introContent">
+
+</section>
+
+
+<h5 class="title-en">계좌 Thsdnv</h5>
 <div>
     <p>
         아버지 계좌:
@@ -104,7 +120,7 @@
 <!-- 지도가 표시될 영역 -->
 <div id="map"></div>
 
-    <h1>결혼식 방명록 (php스톰 테스트123)</h1>
+    <h1>결혼식 방명록 (php스톰 테스트1213)</h1>
 
     <form id="guestbookForm">
         <input type="text" id="name" placeholder="이름을 입력하세요" required><br>

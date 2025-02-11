@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Brachetto';
+    src: url('/type/Brachetto.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Eulyoo1945';
+    src: url('/type/Eulyoo1945-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eulyoo1945';
+    src: url('/type/Eulyoo1945-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Eulyoo1945', sans-serif;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.title-en {
+    font-family: 'Brachetto', sans-serif;
+    font-weight: 400;
+}
+
+.dis-block { display: block; }
+.dis-inline-block { display: inline-block; }
+.half { width: 50%; }
+.flu { width: 100%; }
+
+.pd-0 { padding: 0; }
+.mr-0 { margin: 0; }
+
+/* 타이포그래피 */
+.h4-en--line { font-size: 8vw; line-height: 8vw; }
+
+.h5-kr {}
+.h6-kr { font-size: 2.65vw; line-height: 2.65vw; font-weight: 400;}
+.body-kr { font-size: 16px; line-height: 26px; }
+.body2-kr { font-size: 14px; line-height: 21px; }
+.font-0 { font-size: 0; line-height: 0; }
