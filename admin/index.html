@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결혼식 방명록</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="css/guide.css" rel="stylesheet">
+    <link href="css/inv.css" rel="stylesheet">
+    <script src="js/inv.js"></script>
+    <!-- 네이버 지도 API 스크립트: 클라이언트 아이디 적용 -->
+
+</head>
+
+
+<body>
+
+<h1>결혼식 방명록 (php스톰 테스트1213)</h1>
+
+<form id="guestbookForm">
+    <input type="text" id="name" placeholder="이름을 입력하세요" required><br>
+    <textarea id="message" placeholder="내용을 입력하세요" required></textarea><br>
+    <button type="submit">제출</button>
+</form>
+
+<div class="messages" id="messages">
+    <h2>메시지 목록</h2>
+    <!-- 메시지가 여기에 표시됩니다 -->
+</div>
+
+
+
+
+<!-- Firebase SDK -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBJoFj30tCRzjty-clry4dZ8cIUu4pYyC0",
+        authDomain: "invitation-wallisto.firebaseapp.com",
+        databaseURL: "https://invitation-wallisto-default-rtdb.firebaseio.com",
+        projectId: "invitation-wallisto",
+        storageBucket: "invitation-wallisto.appspot.com",
+        messagingSenderId: "484897874480",
+        appId: "1:484897874480:web:e3952ead0b42df756903f5",
+        measurementId: "G-4XQEQ646GY"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const form = document.getElementById('guestbookForm');
+    const nameInput = document.getElementById('name');
+    const messageInput = document.getElementById('message');
+    const messagesDiv = document.getElementById('messages');
+
+    // 메시지 제출
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+        const date = new Date().toLocaleString(); // 현재 날짜 및 시간
+
+        if (name && message) {
+            try {
+                await push(ref(db, 'messages'), { name, message, date });
+                nameInput.value = ''; // 입력 필드 초기화
+                messageInput.value = '';
+            } catch (error) {
+                console.error('메시지 전송 중 오류 발생:', error);
+            }
+        }
+    });
+
+    // 메시지 삭제 함수
+    const deleteMessage = async (messageId) => {
+        if (confirm('이 메시지를 삭제하시겠습니까?')) {
+            try {
+                await remove(ref(db, `messages/${messageId}`));
+            } catch (error) {
+                console.error('메시지 삭제 중 오류 발생:', error);
+            }
+        }
+    };
+
+    // 메시지 목록 실시간 업데이트
+    onValue(ref(db, 'messages'), (snapshot) => {
+        messagesDiv.innerHTML = '<h2>메시지 목록</h2>';
+        snapshot.forEach((childSnapshot) => {
+            const messageId = childSnapshot.key;
+            const { name, message, date } = childSnapshot.val();
+            const p = document.createElement('div');
+            p.className = 'message';
+            p.innerHTML = `
+                    <strong>${name}</strong> <em>(${date})</em>
+                    <span>${message}</span>
+                    <button class="delete-button" onclick="deleteMessage('${messageId}')">삭제</button>
+                `;
+            messagesDiv.appendChild(p);
+        });
+    });
+    window.deleteMessage = deleteMessage;
+
+
+
+    </script>
+</body>
+</html>

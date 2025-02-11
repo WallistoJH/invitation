@@ -150,8 +150,9 @@ body {
     padding: 32px 24px;
     margin: 0 auto 32px;
     overflow: hidden;
-    background: rgba(231,231,231,.4);
+    background: rgba(241,241,241,.6);
     box-sizing: border-box;
+    border: 1px solid #f1f1f1;
     border-radius: 12px;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);

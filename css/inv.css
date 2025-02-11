@@ -26,6 +26,9 @@
 /* 타이포그래피 */
 .intro-en { font-family: 'Brachetto', sans-serif; font-size: 8vw; line-height: 8vw; font-weight: 400; }
 .intro-kr { font-size: 2.65vw; line-height: 2.65vw; font-weight: 400;}
+@media screen and (min-width: 1441px) {
+    #introTitle { transform: scale(0.5); }
+}
 @media screen and (max-width: 767px) {
     #introTitle { transform: scale(1.15); }
     #introTitle .top { margin-top: -32px; }
