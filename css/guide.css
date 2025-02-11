@@ -24,7 +24,10 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
+    word-break: keep-all;
 }
+
+.color-point { color: #bf0009; }
 
 .dis-none { display: none; }
 .dis-block { display: block; }
@@ -34,22 +37,58 @@ body {
 
 .pd-0 { padding: 0; }
 .pd-t0 { padding-top: 0; }
+.pd-t05 { padding-top: 4px; }
 .pd-t1 { padding-top: 8px; }
+.pd-t015 { padding-top: 12px; }
 .pd-t2 { padding-top: 16px; }
+.pd-t025 { padding-top: 20px; }
 .pd-t3 { padding-top: 24px; }
 .pd-t4 { padding-top: 32px; }
 .pd-t5 { padding-top: 40px; }
 .pd-t6 { padding-top: 48px; }
+.pd-b0 { padding-bottom: 0; }
+.pd-b05 { padding-bottom: 4px; }
 .pd-b1 { padding-bottom: 8px; }
+.pd-b015 { padding-bottom: 12px; }
 .pd-b2 { padding-bottom: 16px; }
+.pd-b025 { padding-bottom: 20px; }
 .pd-b3 { padding-bottom: 24px; }
 .pd-b4 { padding-bottom: 32px; }
 .pd-b5 { padding-bottom: 40px; }
 .pd-b6 { padding-bottom: 48px; }
+
+
+
+
+.pd-l0 { padding-left: 0; }
+.pd-l05 { padding-left: 4px; }
+.pd-l1 { padding-left: 8px; }
+.pd-l015 { padding-left: 12px; }
+.pd-l2 { padding-left: 16px; }
+.pd-l025 { padding-left: 20px; }
+.pd-l3 { padding-left: 24px; }
+.pd-l4 { padding-left: 32px; }
+.pd-l5 { padding-left: 40px; }
+.pd-l6 { padding-left: 48px; }
+.pd-r0 { padding-right: 0; }
+.pd-r05 { padding-right: 4px; }
+.pd-r1 { padding-right: 8px; }
+.pd-r015 { padding-right: 12px; }
+.pd-r2 { padding-right: 16px; }
+.pd-r025 { padding-right: 20px; }
+.pd-r3 { padding-right: 24px; }
+.pd-r4 { padding-right: 32px; }
+.pd-r5 { padding-right: 40px; }
+.pd-r6 { padding-right: 48px; }
+
+
 .mr-0 { margin: 0; }
 .mr-t0 { margin-top: 0; }
+.mr-t05 { margin-top: 4px; }
 .mr-t1 { margin-top: 8px; }
+.mr-t015 { margin-top: 12px; }
 .mr-t2 { margin-top: 16px; }
+.mr-t025 { margin-top: 20px; }
 .mr-t3 { margin-top: 24px; }
 .mr-t4 { margin-top: 32px; }
 .mr-t5 { margin-top: 40px; }
@@ -61,8 +100,11 @@ body {
 .mr-b5 { margin-bottom: 40px; }
 .mr-b6 { margin-bottom: 48px; }
 
+.mr-t-05 { margin-top: -4px; }
 .mr-t-1 { margin-top: -8px; }
+.mr-t-015 { margin-top: -12px; }
 .mr-t-2 { margin-top: -16px; }
+.mr-t-025 { margin-top: -20px; }
 .mr-t-3 { margin-top: -24px; }
 .mr-t-4 { margin-top: -32px; }
 .mr-t-5 { margin-top: -40px; }
@@ -85,6 +127,16 @@ body {
     line-height: 32px;
     margin: 16px 0 20px;
 }
+
+.deco-line {
+    font-family: 'Brachetto', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 32px;
+    margin: 16px -140px 20px 0;
+    font-feature-settings: 'salt' 1;
+}
+
 .body-kr {     font-family: 'Eulyoo1945', sans-serif;
     font-size: 16px; line-height: 28px; letter-spacing: -.8px; word-spacing: -1px; }
 .body2-kr {     font-family: 'Eulyoo1945', sans-serif;
@@ -117,6 +169,7 @@ body {
     color: #fff;
     font-size: 14px;
     line-height: 14px;
+    cursor: pointer;
 }
 @media screen and (min-width: 768px) {
     .inv-button:hover,
