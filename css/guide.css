@@ -129,6 +129,7 @@ body {
     font-size: 32px;
     line-height: 32px;
     margin: 16px 0 20px;
+    word-spacing: -8px;
 }
 
 .deco-line {
@@ -141,14 +142,20 @@ body {
 }
 
 .body-kr {     font-family: 'Eulyoo1945', sans-serif;
-    font-size: 16px; line-height: 28px; letter-spacing: -.8px; word-spacing: -1px; }
+    font-size: 16px; line-height: 28px; letter-spacing: -.3px; word-spacing: -.8px; }
 .body2-kr {     font-family: 'Eulyoo1945', sans-serif;
-    font-size: 14px; line-height: 22px; letter-spacing: -.8px; word-spacing: -1px; }
+    font-size: 14px; line-height: 22px; letter-spacing: -.3px; word-spacing: -.8px; }
 .font-0 { font-size: 0; line-height: 0; letter-spacing: 0; word-spacing: 0; }
 
+.text-deco--line {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 0.1em;
+}
 
 .content {
-    width: calc(100% - 32px);
+    width: calc(100% - 24px);
     max-width: 480px;
     padding: 32px 24px;
     margin: 0 auto 32px;
@@ -161,7 +168,7 @@ body {
     backdrop-filter: blur(12px);
 }
 @media screen and (max-width: 767px) {
-    .content { padding: 32px 20px; }
+    .content { padding: px 20px; }
 }
 
 .inv-button {

@@ -86,7 +86,7 @@
         <aside class="content-title">
             <p class="title-en">
                 Greeting Message
-                <span class="dis-block body-kr" style="margin-top: -4px">인사말</span>
+                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">인사말</span>
             </p>
             <p class="body-kr" style="word-break: break-all">
                 박수와 축복 속에서 새로운 시작을 맞이합니다. <span>✿</span> 재미있고 행복한 날들을 함께 만들어 가려 합니다. <span>✿</span> 한결같이 서로를 아끼고 사랑하며 걸어가겠습니다. <span>✿</span> 계절이 바뀌어도 변함없는 마음으로 서겠습니다. <span>✿</span> 유난히 따뜻할 그날, 여러분과 함께하고 싶습니다. <span>✿</span> 미래로 내딛는 첫걸음에 소중한 발걸음을 부탁드립니다.
@@ -125,24 +125,22 @@
 <!-- 오시는 길 -->
 <section id="contact_map">
     <article class="content">
-
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
             <p class="title-en">
-                Venue& Directions
-                <span class="dis-block body-kr" style="margin-top: -4px">오시는 길</span>
+                Venue & Directions
+                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">오시는 길</span>
             </p>
         </aside>
-
-        <div id="map"></div>
-
-
-
-        <a href="javascript:naverMap('더컨벤션 송파문정','37.484235','127.122730');">네이버 경로 안내</a>
-        <a href="javascript:kakaoMap('더컨벤션 송파문정','37.484235','127.122730');">카카오 경로 안내</a>
-        <a href="javascript:tMap('더컨벤션 송파문정','37.484235','127.122730');">티맵 경로 안내</a>
-        출처: https://blog.makebyhand.co.kr/449 [Alienus Non diutius:티스토리]
-
+        <!-- 지도 맵 -->
+        <aside id="map"></aside>
+        <!-- 경로 버튼 -->
+        <div id="mapLoadWrap">
+            <a href="javascript:naverMap('더컨벤션 송파문정','37.484235','127.122730');">네이버 경로 안내</a>
+            <a href="javascript:kakaoMap('더컨벤션 송파문정','37.484235','127.122730');">카카오 경로 안내</a>
+            <a href="javascript:tMap('더컨벤션 송파문정','37.484235','127.122730');">티맵 경로 안내</a>
+        </div>
+        <!-- 정보 -->
         <div class="top mr-t4 mr-b4 font-0">
             <div class="dis-inline-block left half ver-t">
                 <p class="body2-kr pd-l1 pd-r1">
@@ -182,7 +180,7 @@
                 </p>
             </div>
             <div class="dis-block bottom flu mr-t4">
-                <p class="body-kr">
+                <p class="body2-kr">
                     <span class="color-subtitle">- 참고사항 -</span><br/>
                     <strong>문정법조타운·건영아파트 정류소에서 도보 4분</strong><br/>
                     <strong>대중교통 정책에 따라 일부 변동될 수 있음.</strong><br/><br/>
@@ -204,8 +202,8 @@
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
             <p class="title-en">
-                With Love& Gratitude
-                <span class="dis-block body-kr" style="margin-top: -4px">마음 전하실 곳</span>
+                With Love & Gratitude
+                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">마음 전하실 곳</span>
             </p>
         </aside>
         <div class="top mr-t4 mr-b4 font-0">
@@ -257,6 +255,24 @@
                 <p class="deco-line">_</p>
             </div>
         </div>
+    </article>
+</section>
+
+
+
+
+
+<!-- 방명록 -->
+<section id="guestBook" class="dis-non1e">
+    <article class="content">
+        <!-- 콘텐츠 타이틀 -->
+        <aside class="content-title">
+            <p class="title-en">
+                Guestbook
+                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">마음 전하실 곳</span>
+            </p>
+        </aside>
+
     </article>
 </section>
 
