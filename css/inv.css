@@ -1,6 +1,6 @@
 /* 1. 메인 타이틀 */
 #introTitle {
-    position: fixed; right: 0; left: 0; top: 0; bottom: 0;
+    position: fixed; right: 0; left: 0; top: 0; bottom: 0; z-index: -1;
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -14,15 +14,24 @@
     filter: blur(.6vw);
     opacity: .5;
 }
-
 /* 메인 아티클 덩어리 */
 #introTitle .left-top { margin-right: 3vw; }
 #introTitle .right-top { margin-left: 3vw; }
+#introTitle .top { margin-top: -5vw; }
 #introTitle .bottom { margin-top: 4vw; }
 /* 메인 텍스트 요소 */
-#introTitle .h6-kr { margin-top: .65vw; }
-#introTitle .left-top .h6-kr { margin-left: 4.5vw; }
-#introTitle .right-top .h6-kr { margin-left: -4.5vw; }
+#introTitle .intro-kr { margin-top: .65vw; }
+#introTitle .left-top .intro-kr { margin-left: 4.5vw; }
+#introTitle .right-top .intro-kr { margin-left: -4.5vw; }
+
+
+/* 타이포그래피 */
+.intro-en { font-size: 8vw; line-height: 8vw; }
+.intro-kr { font-size: 2.65vw; line-height: 2.65vw; font-weight: 400;}
+
+@media screen and (max-width: 767px) {
+    #introTitle { transform: scale(1.15);}
+}
 
 /* 2. 텍스트 타이틀 */
 #introContent {
