@@ -23,17 +23,43 @@
 #introTitle .intro-kr { margin-top: .65vw; }
 #introTitle .left-top .intro-kr { margin-left: 4.5vw; }
 #introTitle .right-top .intro-kr { margin-left: -4.5vw; }
-
-
 /* 타이포그래피 */
-.intro-en { font-size: 8vw; line-height: 8vw; }
+.intro-en { font-family: 'Brachetto', sans-serif; font-size: 8vw; line-height: 8vw; font-weight: 400; }
 .intro-kr { font-size: 2.65vw; line-height: 2.65vw; font-weight: 400;}
-
 @media screen and (max-width: 767px) {
-    #introTitle { transform: scale(1.15);}
+    #introTitle { transform: scale(1.15); }
+    #introTitle .top { margin-top: -32px; }
+    #introTitle .left-top .intro-kr { margin-left: 12px; }
+    #introTitle .right-top .intro-kr { margin-left: -12px; }
+    .intro-kr { font-size: 14px; line-height: 14px; font-weight: 400;}
 }
 
 /* 2. 텍스트 타이틀 */
 #introContent {
     margin-top: 100vh;
+}
+#introContent .content {
+    width: calc(100% - 32px);
+    max-width: 480px;
+    padding: 32px 24px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: rgba(231,231,231,.4);
+    box-sizing: border-box;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+}
+#introContent .content .content-title .title-en { white-space: nowrap; }
+#introContent .content .content-title .body-kr {
+    text-align: justify;
+    letter-spacing: -0.3px;
+    word-spacing: -2px;
+    text-align-last: center;
+}
+#introContent .content .content-title .body-kr span { font-size: 12px; position: relative; top: -2px; }
+/* 콘텐츠 바디 */
+#introContent .content .content-body .top { margin: 32px 0 32px; }
+#introContent .content .content-body .top .title-en { margin: 0; font-size: 28px; line-height: 24px; position: relative; top: 2px;}
+@media screen and (max-width: 767px) {
+    #introContent .content { padding: 32px 20px; }
 }
