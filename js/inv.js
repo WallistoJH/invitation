@@ -16,3 +16,25 @@ $(document).ready(function () {
         }
     });
 });
+
+
+
+
+
+// 마음 전하실 곳
+// 계좌 번호
+$(document).ready(function () {
+    // 계좌 복사 기능을 통합하여 최적화
+    $(document).on("click", "[data-copy]", function () {
+        var account = $("#" + $(this).data("copy")).text().trim();
+        if (account) {
+            navigator.clipboard.writeText(account)
+                .then(function () {
+                    alert($(this).text() + " 계좌번호가 복사되었습니다.");
+                }.bind(this))
+                .catch(function (err) {
+                    console.error("복사 실패: ", err);
+                });
+        }
+    });
+});
