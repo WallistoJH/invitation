@@ -153,6 +153,7 @@ body {
     background: rgba(231,231,231,.4);
     box-sizing: border-box;
     border-radius: 12px;
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
 }
 @media screen and (max-width: 767px) {
