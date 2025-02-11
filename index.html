@@ -80,7 +80,8 @@
     </article>
 </section>
 
-<section id="introContent" class="dis-none1">
+<!-- 인사말 -->
+<section id="introContent" class="dis-no1ne">
     <article class="content">
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
@@ -123,7 +124,7 @@
 
 
 <!-- 오시는 길 -->
-<section id="contact_map">
+<section id="contact_map" class="dis-n1one"  >
     <article class="content">
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
@@ -133,48 +134,55 @@
             </p>
         </aside>
         <!-- 지도 맵 -->
-        <aside id="map"></aside>
+        <aside id="map" class="mr-t4"></aside>
         <!-- 경로 버튼 -->
         <div id="mapLoadWrap">
-            <a href="javascript:naverMap('더컨벤션 송파문정','37.484235','127.122730');">네이버 경로 안내</a>
-            <a href="javascript:kakaoMap('더컨벤션 송파문정','37.484235','127.122730');">카카오 경로 안내</a>
-            <a href="javascript:tMap('더컨벤션 송파문정','37.484235','127.122730');">티맵 경로 안내</a>
+            <a class="nv body2-kr" href="javascript:naverMap('더컨벤션 송파문정','37.484235','127.122730');">네이버맵<br/>경로 안내</a>
+            <a class="ka body2-kr" href="javascript:kakaoMap('더컨벤션 송파문정','37.484235','127.122730');">카카오맵<br/>경로 안내</a>
+            <a class="tm body2-kr" href="javascript:tMap('더컨벤션 송파문정','37.484235','127.122730');">티맵<br/>경로 안내</a>
         </div>
         <!-- 정보 -->
-        <div class="top mr-t4 mr-b4 font-0">
+
+        <aside class="content-title mr-t8">
+            <p class="title-en">
+                Travel Directions
+                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">대중교통 / 자가용</span>
+            </p>
+        </aside>
+        <div class="top mr-t3 mr-b4 font-0" style="margin-left: -12px; margin-right: -12px;">
             <div class="dis-inline-block left half ver-t">
                 <p class="body2-kr pd-l1 pd-r1">
-                    - 대중교통 이용시 -<br/><br/>
-                    <span class="color-subtitle">지하철</span><br/>
+<!--                    <strong>대중교통</strong><br/><br/>-->
+                    <span class="color-subtitle">- 지하철 -</span><br/>
                     <strong>8호선 문정역 3번 출구 도보 5분</strong><br/>
                     <br/>
-                    <span class="color-subtitle">일반버스 및 지선버스</span><br/>
+                    <span class="color-subtitle">- 일반 및 지선버스 -</span><br/>
                     <strong>
                         30, 31, 32, 100, 119, 331,
                         3322, 3420
                     </strong><br/>
                     <br/>
-                    <span class="color-subtitle">간선버스</span><br/>
+                    <span class="color-subtitle">- 간선버스 -</span><br/>
                     <strong>302, 303, 320, 333, 350, 360,
                         343, 345, N13, N37</strong><br/>
                     <br/>
-                    <span class="color-subtitle">직행버스 및 광역버스</span><br/>
+                    <span class="color-subtitle">- 직행 및 광역버스 -</span><br/>
                     <strong>500-1, 1009, 1112, 1117, 1650, 500-1A,
                         3302, G2100, G6009, 9403, M5342</strong><br/>
                 </p>
             </div>
             <div class="dis-inline-block right half ver-t">
                 <p class="body2-kr pd-l1 pd-r1">
-                    - 자가용 이용시 -<br/><br/>
-                    <span class="color-subtitle">도로명 주소</span><br/>
+<!--                    <strong>자가용</strong><br/><br/>-->
+                    <span class="color-subtitle">- 도로명 주소 -</span><br/>
                     <strong id="new-address">서울 송파구 송파대로 155</strong><br/>
                     <button class="inv-button m mr-t05" data-text="도로명 주소" data-copy="new-address">주소 복사</button><br/>
                     <br/>
-                    <span class="color-subtitle">지번 주소</span><br/>
+                    <span class="color-subtitle">- 지번 주소 -</span><br/>
                     <strong id="old-address">서울 송파구 문정동 651-8</strong><br/>
                     <button class="inv-button m mr-t05" data-text="지번 주소" data-copy="old-address">주소 복사</button><br/>
                     <br/>
-                    <span class="color-subtitle">자가용 주차</span><br/>
+                    <span class="color-subtitle">- 자가용 주차 -</span><br/>
                     <strong>건물 지하 2-5층까지 400대</strong><br/>
                     <strong>외부에서 300대 가능</strong>
                 </p>
@@ -209,7 +217,7 @@
         <div class="top mr-t4 mr-b4 font-0">
             <div class="dis-inline-block left half ver-t">
                 <p class="body2-kr">
-                    <span class="color-subtitle">신랑</span><br/>
+                    <span class="color-subtitle">- 신랑 -</span><br/>
                     <!-- 신랑 계좌 -->
                     <strong>우리은행 박재한</strong><br/>
                     <strong id="m-account">1002-556-542411</strong><br/>
@@ -269,19 +277,23 @@
         <aside class="content-title">
             <p class="title-en">
                 Guestbook
-                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">마음 전하실 곳</span>
+                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">방명록</span>
             </p>
+        </aside>
+        <aside id="guestBookList">
+            <div class="messages" id="messages">
+                <!-- 메시지가 여기에 표시됩니다 -->
+            </div>
         </aside>
 
     </article>
 </section>
 
 
-<h5>결혼식 지도</h5>
+<h5>방명록</h5>
 <!-- 지도가 표시될 영역 -->
 
 
-    <h1>결혼식 방명록 (php스톰 테스트1213)</h1>
 
     <form id="guestbookForm">
         <input type="text" id="name" placeholder="이름을 입력하세요" required><br>
@@ -289,10 +301,6 @@
         <button type="submit">제출</button>
     </form>
 
-    <div class="messages" id="messages">
-        <h2>메시지 목록</h2>
-        <!-- 메시지가 여기에 표시됩니다 -->
-    </div>
 
 
 
@@ -352,7 +360,7 @@
 
         // 메시지 목록 실시간 업데이트
         onValue(ref(db, 'messages'), (snapshot) => {
-            messagesDiv.innerHTML = '<h2>메시지 목록</h2>';
+            // messagesDiv.innerHTML = '<h2>메시지 목록</h2>';
             snapshot.forEach((childSnapshot) => {
                 const messageId = childSnapshot.key;
                 const { name, message, date } = childSnapshot.val();
