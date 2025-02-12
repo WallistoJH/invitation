@@ -592,123 +592,101 @@
 
 <!-- 스와이퍼 js 최신 버전 추가 -->
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
     $(document).ready(function() {
         $("#photoWrap").load("include/gallery.html", function() {
             const swiper = new Swiper("#photoWrap--swiper", {
                 slidesPerView: 1,
                 spaceBetween: 12,
-                speed: 600,
+                speed: 1000,
                 loop: false,
                 autoplay: {
-                    delay: 2000,
+                    delay: 1500,
                     disableOnInteraction: false,
                 },
+
                 centeredSlides: false,
                 grabCursor: true,
-                preventClicks: false, // 여기서 false로 설정
+                preventClicks: true,  // ✅ Swiper 내부에서 click 이벤트 차단
                 preventClicksPropagation: false,
-                allowTouchMove: true,
-                simulateTouch: true,
-                watchSlidesProgress: true,
+                allowTouchMove: true,  // ✅ 스와이프 가능하도록 다시 활성화
+                simulateTouch: true,   // ✅ 터치 이벤트 활성화
+                watchSlidesProgress: true,  // ✅ Swiper가 클릭 감지하도록 강제
+
                 navigation: {
                     nextEl: '.swiper-next',
                     prevEl: '.swiper-prev',
                 },
+
                 cssMode: false,
                 effect: 'slide',
             });
 
             let currentIndex = 0;
+            let startX = 0, startY = 0, isDragging = false;
             const modal = $("#imageModal");
             const modalImage = $("#modalImage");
 
-            // 좌표와 드래그 여부를 저장할 변수
-            let startX = 0, startY = 0;
-            const THRESHOLD = 15; // 임계값 (픽셀)
-
-            // mousedown/touchstart 시점에 좌표 저장 (a 태그에 바인딩)
-            $(document).on("mousedown touchstart", ".swiper-slide a", function(event) {
-                // 터치와 마우스 이벤트 분기
-                if (event.type === "touchstart") {
-                    startX = event.originalEvent.touches[0].clientX;
-                    startY = event.originalEvent.touches[0].clientY;
-                } else {
-                    startX = event.pageX;
-                    startY = event.pageY;
-                }
-                // 임시 데이터를 저장 (DOM 요소에 data로 저장)
-                $(this).data("startX", startX).data("startY", startY);
+            // ✅ 1. 마우스/터치 시작 시점 저장
+            $(document).on("mousedown touchstart", ".swiper-slide img", function(event) {
+                isDragging = false;
+                startX = event.pageX || event.originalEvent.touches[0].pageX;
+                startY = event.pageY || event.originalEvent.touches[0].pageY;
             });
 
-            // click 이벤트에서 좌표 차이 계산 후 모달 실행
-            $(document).on("click", ".swiper-slide a", function(event) {
-                // Swiper 내부에서 클릭을 막지 않도록 preventDefault를 호출
-                event.preventDefault();
+            // ✅ 2. 일정 거리 이상 움직이면 "드래그 중"으로 판별
+            $(document).on("mousemove touchmove", ".swiper-slide img", function(event) {
+                let moveX = event.pageX || event.originalEvent.touches[0].pageX;
+                let moveY = event.pageY || event.originalEvent.touches[0].pageY;
 
-                let endX, endY;
-                if (event.type === "touchend" || event.originalEvent.changedTouches) {
-                    // 만약 터치 이벤트라면 터치 종료 위치를 가져옴
-                    endX = event.originalEvent.changedTouches[0].clientX;
-                    endY = event.originalEvent.changedTouches[0].clientY;
-                } else {
-                    endX = event.pageX;
-                    endY = event.pageY;
+                if (Math.abs(moveX - startX) > 10 || Math.abs(moveY - startY) > 10) {
+                    isDragging = true;
                 }
+            });
 
-                // 저장했던 시작 좌표를 가져옴
-                const sX = $(this).data("startX") || 0;
-                const sY = $(this).data("startY") || 0;
-
-                // 이동 거리를 계산
-                const deltaX = Math.abs(endX - sX);
-                const deltaY = Math.abs(endY - sY);
-
-                // 이동 거리가 임계값 이하일 때만 클릭으로 인식
-                if (deltaX <= THRESHOLD && deltaY <= THRESHOLD) {
-                    let clickedImg = $(this).find("img");
-                    if (clickedImg.length > 0) {
-                        currentIndex = $(".swiper-slide img").index(clickedImg);
-                        modalImage.attr("src", clickedImg.attr("src"));
-                        modal.css("display", "block"); // 모달 열기
+            // ✅ 3. 마우스/터치 끝난 후 클릭인지 확인 (드래그가 아니면 모달 실행)
+            $(document).on("mouseup touchend", ".swiper-slide img", function(event) {
+                if (!isDragging) {
+                    setTimeout(() => {
+                        currentIndex = $(".swiper-slide img").index(this);
+                        modalImage.attr("src", $(this).attr("src"));
+                        modal.show();
                         swiper.autoplay.stop();
-                        console.log("모달 열림:", clickedImg.attr("src"));
-                    }
-                } else {
-                    console.log("드래그로 인한 클릭 무시:", deltaX, deltaY);
+                    }, 100);
                 }
             });
 
-            // 모달 이전 버튼 클릭 시
+            // ✅ 이전 버튼 클릭 시
             $(".modal-prev").click(function() {
                 currentIndex = (currentIndex - 1 + $(".swiper-slide img").length) % $(".swiper-slide img").length;
                 modalImage.attr("src", $(".swiper-slide img").eq(currentIndex).attr("src"));
             });
 
-            // 모달 다음 버튼 클릭 시
+            // ✅ 다음 버튼 클릭 시
             $(".modal-next").click(function() {
                 currentIndex = (currentIndex + 1) % $(".swiper-slide img").length;
                 modalImage.attr("src", $(".swiper-slide img").eq(currentIndex).attr("src"));
             });
 
-            // 모달 닫기 (클릭 이벤트)
+            // ✅ 모달 닫기 (ESC 키, 바깥 클릭, 닫기 버튼)
             $(document).on("click", ".modal-close, .modal", function(event) {
                 if (event.target === this) {
-                    modal.css("display", "none");
+                    modal.hide();
                     swiper.autoplay.start();
                 }
             });
 
-            // ESC 키로 모달 닫기
             $(document).keydown(function(event) {
                 if (event.key === "Escape") {
-                    modal.css("display", "none");
+                    modal.hide();
                     swiper.autoplay.start();
                 }
             });
         });
     });
+
+
 
 
 
