@@ -127,9 +127,9 @@
 
 /* 갤러리 영역 */
 #photo { overflow: hidden; }
-#photo .content { overflow: visible; }
+/*#photo .content { overflow: visible; }*/
 /* 콘텐츠 내용 */
-#photoWrap { overflow: visible; }
+#photoWrap { overflow: hidden; }
 #photoWrap--swiper {
     width: auto;
     height: auto;  /* ✅ 높이 고정 */
