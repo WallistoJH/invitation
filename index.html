@@ -591,28 +591,45 @@
 
 
 <!-- 스와이퍼 js 최신 버전 추가 -->
+<!-- 스와이퍼 js 최신 버전 추가 -->
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
+
+
     $(document).ready(function() {
         $("#photoWrap").load("include/gallery.html", function() {
+            const swiperContainer = document.querySelector("#photoWrap--swiper .swiper-wrapper");
+
+            // ✅ 기존 슬라이드 복제하여 무한 반복 효과
+            // swiperContainer.innerHTML += swiperContainer.innerHTML;  // 동일한 슬라이드를 복제하여 추가
+
             const swiper = new Swiper("#photoWrap--swiper", {
-                slidesPerView: 1,
+                slidesPerView: "auto",  // ✅ 슬라이드 크기 자동 조절
                 spaceBetween: 12,
-                speed: 1000,
-                loop: false,
+                speed: 1000,  // ✅ 부드럽게 이어지도록 충분한 속도 설정
+                loop: false,  // ✅ Swiper의 loop 대신 직접 클론 복제
                 autoplay: {
-                    delay: 1500,
-                    disableOnInteraction: false,
+                    delay: 1500,  // ✅ 마키 효과를 위해 지연 없이 시작
+                    disableOnInteraction: false,  // ✅ 마우스로 조작 후에도 자동 재생 유지
                 },
 
+                freeMode: true,  // ✅ 자유로운 이동 가능
+                // freeModeMomentum: false,  // ✅ 관성 효과 제거
+                // freeModeSticky: false,
+
+                freeModeMomentum: true,
+                freeModeMomentumRatio: 0.7,  // 강하게 밀어내지만 약간 부드럽게
+                freeModeMomentumVelocityRatio: 1.1, // 관성 효과 약간 줄이기
+                freeModeSticky: true, // 정렬 활성화
+                freeModeMomentumBounce: true, // 끝에서 튕김 효과 활성화
+
                 centeredSlides: false,
-                grabCursor: true,
-                preventClicks: true,  // ✅ Swiper 내부에서 click 이벤트 차단
+                allowTouchMove: true,  // ✅ 마우스로 직접 스와이프 가능
+                grabCursor: true,  // ✅ 손 모양 커서
+
+                preventClicks: true,  // ✅ 클릭해도 autoplay가 멈추지 않도록 설정
                 preventClicksPropagation: false,
-                allowTouchMove: true,  // ✅ 스와이프 가능하도록 다시 활성화
-                simulateTouch: true,   // ✅ 터치 이벤트 활성화
-                watchSlidesProgress: true,  // ✅ Swiper가 클릭 감지하도록 강제
 
                 navigation: {
                     nextEl: '.swiper-next',
@@ -623,80 +640,33 @@
                 effect: 'slide',
             });
 
-            let currentIndex = 0;
-            let startX = 0, startY = 0, isDragging = false;
-            const modal = $("#imageModal");
-            const modalImage = $("#modalImage");
-
-            // ✅ 1. 마우스/터치 시작 시점 저장
-            $(document).on("mousedown touchstart", ".swiper-slide img", function(event) {
-                isDragging = false;
-                startX = event.pageX || event.originalEvent.touches[0].pageX;
-                startY = event.pageY || event.originalEvent.touches[0].pageY;
+            // ✅ 마우스로 드래그하면 autoplay를 멈추고, 놓으면 다시 시작
+            swiper.el.addEventListener("mousedown", function () {
+                swiper.autoplay.stop();
             });
 
-            // ✅ 2. 일정 거리 이상 움직이면 "드래그 중"으로 판별
-            $(document).on("mousemove touchmove", ".swiper-slide img", function(event) {
-                let moveX = event.pageX || event.originalEvent.touches[0].pageX;
-                let moveY = event.pageY || event.originalEvent.touches[0].pageY;
-
-                if (Math.abs(moveX - startX) > 10 || Math.abs(moveY - startY) > 10) {
-                    isDragging = true;
-                }
+            swiper.el.addEventListener("mouseup", function () {
+                swiper.autoplay.start();
             });
 
-            // ✅ 3. 마우스/터치 끝난 후 클릭인지 확인 (드래그가 아니면 모달 실행)
-            $(document).on("mouseup touchend", ".swiper-slide img", function(event) {
-                if (!isDragging) {
-                    setTimeout(() => {
-                        currentIndex = $(".swiper-slide img").index(this);
-                        modalImage.attr("src", $(this).attr("src"));
-                        modal.show();
-                        swiper.autoplay.stop();
-                    }, 100);
-                }
+            swiper.el.addEventListener("mouseleave", function () {
+                swiper.autoplay.start();
             });
 
-            // ✅ 이전 버튼 클릭 시
-            $(".modal-prev").click(function() {
-                currentIndex = (currentIndex - 1 + $(".swiper-slide img").length) % $(".swiper-slide img").length;
-                modalImage.attr("src", $(".swiper-slide img").eq(currentIndex).attr("src"));
+            swiper.el.addEventListener("touchstart", function () {
+                swiper.autoplay.stop();
             });
 
-            // ✅ 다음 버튼 클릭 시
-            $(".modal-next").click(function() {
-                currentIndex = (currentIndex + 1) % $(".swiper-slide img").length;
-                modalImage.attr("src", $(".swiper-slide img").eq(currentIndex).attr("src"));
-            });
-
-            // ✅ 모달 닫기 (ESC 키, 바깥 클릭, 닫기 버튼)
-            $(document).on("click", ".modal-close, .modal", function(event) {
-                if (event.target === this) {
-                    modal.hide();
-                    swiper.autoplay.start();
-                }
-            });
-
-            $(document).keydown(function(event) {
-                if (event.key === "Escape") {
-                    modal.hide();
-                    swiper.autoplay.start();
-                }
+            swiper.el.addEventListener("touchend", function () {
+                swiper.autoplay.start();
             });
         });
     });
 
 
-
-
-
-
-
-
-
-
-
-
 </script>
+
+
+
 </body>
 </html>
