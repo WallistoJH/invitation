@@ -6,7 +6,6 @@
     </div>
 
 
-
     <aside class="brand-more  qz-wrap dis-flex flex-align-c" data-list-count="unabled">
 
         <button type="button" class="swiper-prev    dis-inline-block qz-ico w24 r-f qz_b_bracket_left mr-l015 hover mb-dis-none">dd</button>
@@ -67,48 +66,4 @@
         // 삽입
         swiperWrapper.insertAdjacentHTML('beforeend', slideHTML);
     });
-</script>
-
-
-
-<script>
-    $(document).ready(function() {
-        let currentIndex = 0;  // 현재 이미지 인덱스
-        const images = $(".swiper-slide img");  // 모든 이미지 리스트
-        const modal = $("#imageModal");  // 모달
-        const modalImage = $("#modalImage");  // 모달 내부 이미지
-
-        // ✅ 이미지 클릭 시 모달 열기
-        images.click(function() {
-            currentIndex = images.index(this);  // 현재 이미지 인덱스 저장
-            modalImage.attr("src", $(this).attr("src"));  // 모달에 이미지 표시
-            modal.show();  // 모달 보이기
-        });
-
-        // ✅ 이전 버튼 클릭 시
-        $(".modal-prev").click(function() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            modalImage.attr("src", images.eq(currentIndex).attr("src"));
-        });
-
-        // ✅ 다음 버튼 클릭 시
-        $(".modal-next").click(function() {
-            currentIndex = (currentIndex + 1) % images.length;
-            modalImage.attr("src", images.eq(currentIndex).attr("src"));
-        });
-
-        // ✅ 모달 닫기 (ESC 키, 바깥 클릭, 닫기 버튼)
-        $(".modal-close, .modal").click(function(event) {
-            if (event.target === this) {  // 배경 클릭 시 닫기
-                modal.hide();
-            }
-        });
-
-        $(document).keydown(function(event) {
-            if (event.key === "Escape") {
-                modal.hide();  // ESC 키로 닫기
-            }
-        });
-    });
-
 </script>
