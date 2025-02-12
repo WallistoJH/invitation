@@ -1,0 +1,70 @@
+<div id="photoWrap--swiper" class="swiper">
+
+
+    <div class="swiper-wrapper pd-v005">
+        <!-- 이 영역은 JS에서 동적으로 채워집니다. -->
+    </div>
+
+
+
+    <aside class="brand-more  qz-wrap dis-flex flex-align-c" data-list-count="unabled">
+
+        <button type="button" class="swiper-prev    dis-inline-block qz-ico w24 r-f qz_b_bracket_left mr-l015 hover mb-dis-none">dd</button>
+        <button type="button" class="swiper-next    dis-inline-block qz-ico w24 r-f qz_b_bracket_right mr-l05 hover mb-dis-none">ff</button>
+    </aside>
+
+</div>
+
+
+
+
+
+
+<!-- 모달 팝업 -->
+<!-- 모달 HTML (display:none으로 초기 숨김) -->
+<div id="imageModal" class="modal" style="display: none;">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImage" alt="모달 이미지">
+    <button class="modal-prev">&lt;</button>
+    <button class="modal-next">&gt;</button>
+</div>
+
+
+<script>
+    // 이미지 경로 배열 (필요한 만큼 추가)
+    const imagePaths = [
+        "img/output_01.jpg",
+        "img/output_02.jpg",
+        "img/output_03.jpg",
+        "img/o_0.jpg",
+        "img/o_1.jpg",
+        "img/o_2.jpg",
+        "img/o_3.jpg",
+        "img/o_4.jpg",
+        "img/o_5.jpg",
+        "img/o_6.jpg",
+        "img/f_1.jpg",
+        "img/f_2.jpg",
+        "img/f_3.jpg",
+        "img/f_4.jpg",
+        "img/IMG_5294.jpg",
+        "img/IMG_5295.jpg",
+        "img/IMG_5296.jpg"
+    ];
+    // swiper-wrapper 요소 선택
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+    // 배열을 순회하며 각 이미지에 대해 HTML 생성
+    imagePaths.forEach(function(src) {
+        // 요소를 생성하는 방법 1: 문자열로 HTML 생성
+        const slideHTML = `
+      <div class="swiper-slide">
+        <a href="javascript:void(0)">
+          <img src="${src}" alt=""/>
+        </a>
+      </div>
+    `;
+        // 삽입
+        swiperWrapper.insertAdjacentHTML('beforeend', slideHTML);
+    });
+</script>
