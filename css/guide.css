@@ -199,6 +199,7 @@ body {
     border-radius: 12px;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
+    box-shadow: 0 0 16px rgba(0,0,0,0.05);
 }
 @media screen and (max-width: 767px) {
     .content { padding: 24px 20px 16px; }
@@ -209,7 +210,7 @@ body {
     border: none;
     padding: 13px 16px;
     margin: 0 0 11px;
-    background: #465b43;
+    background: #434742;
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0,0,0,.15);
     color: #fff;

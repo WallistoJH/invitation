@@ -1,15 +1,8 @@
 <div id="photoWrap--swiper" class="swiper">
-
-
-    <div class="swiper-wrapper pd-v005">
-        <!-- 이 영역은 JS에서 동적으로 채워집니다. -->
-    </div>
-
-
-    <aside class="brand-more  qz-wrap dis-flex flex-align-c" data-list-count="unabled">
-
-        <button type="button" class="swiper-prev    dis-inline-block qz-ico w24 r-f qz_b_bracket_left mr-l015 hover mb-dis-none">dd</button>
-        <button type="button" class="swiper-next    dis-inline-block qz-ico w24 r-f qz_b_bracket_right mr-l05 hover mb-dis-none">ff</button>
+    <div class="swiper-wrapper"></div>
+    <aside class="arrow-button font-0 mr-t2" data-list-count="unabled">
+        <button type="button" class="swiper-prev inv-button">이전</button>
+        <button type="button" class="swiper-next inv-button">다음</button>
     </aside>
 
 </div>
@@ -18,52 +11,82 @@
 
 
 
-
-<!-- 모달 팝업 -->
-<!-- 모달 HTML (display:none으로 초기 숨김) -->
-<div id="imageModal" class="modal" style="display: none;">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImage" alt="모달 이미지">
-    <button class="modal-prev">&lt;</button>
-    <button class="modal-next">&gt;</button>
-</div>
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // 이미지 경로 배열 (필요한 만큼 추가)
+    let currentIndex = 0;
     const imagePaths = [
-        "img/output_01.jpg",
-        "img/output_02.jpg",
-        "img/output_03.jpg",
-        "img/o_0.jpg",
-        "img/o_1.jpg",
-        "img/o_2.jpg",
-        "img/o_3.jpg",
-        "img/o_4.jpg",
-        "img/o_5.jpg",
-        "img/o_6.jpg",
-        "img/f_1.jpg",
-        "img/f_2.jpg",
-        "img/f_3.jpg",
-        "img/f_4.jpg",
-        "img/IMG_5294.jpg",
-        "img/IMG_5295.jpg",
-        "img/IMG_5296.jpg"
+        "img/output_01.jpg", "img/output_02.jpg", "img/output_03.jpg",
+        "img/o_0.jpg", "img/o_1.jpg", "img/o_2.jpg", "img/o_3.jpg",
+        "img/o_4.jpg", "img/o_5.jpg", "img/o_6.jpg",
+        "img/f_1.jpg", "img/f_2.jpg", "img/f_3.jpg", "img/f_4.jpg",
+        "img/IMG_5294.jpg", "img/IMG_5295.jpg", "img/IMG_5296.jpg"
     ];
-    // swiper-wrapper 요소 선택
-    const swiperWrapper = document.querySelector('.swiper-wrapper');
 
-    // 배열을 순회하며 각 이미지에 대해 HTML 생성
-    imagePaths.forEach(function(src) {
-        // 요소를 생성하는 방법 1: 문자열로 HTML 생성
-        const slideHTML = `
-      <div class="swiper-slide">
-        <a href="javascript:void(0)">
-          <img src="${src}" alt=""/>
-        </a>
-      </div>
-    `;
-        // 삽입
-        swiperWrapper.insertAdjacentHTML('beforeend', slideHTML);
+    $(document).ready(function() {
+        const modal = $("#imageModal");
+        const modalImage = $("#modalImage");
+        const modalPrev = $(".modal-prev");
+        const modalNext = $(".modal-next");
+        const modalClose = $(".modal-close");
+
+        // 이미지 클릭 시 모달 열기
+        window.clickPhoto = function(index) {
+            currentIndex = index;
+            updateModalImage();
+            modal.fadeIn();
+        };
+
+        // 모달 이미지 업데이트
+        function updateModalImage() {
+            modalImage.attr("src", imagePaths[currentIndex]);
+
+            // 버튼 비활성화 처리 (맨 앞 / 맨 뒤)
+            if (currentIndex === 0) {
+                modalPrev.fadeOut();
+            } else {
+                modalPrev.fadeIn();
+            }
+
+            if (currentIndex === imagePaths.length - 1) {
+                modalNext.fadeOut();
+            } else {
+                modalNext.fadeIn();
+            }
+        }
+
+        // 이전 이미지 보기
+        modalPrev.click(function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateModalImage();
+            }
+        });
+
+        // 다음 이미지 보기
+        modalNext.click(function() {
+            if (currentIndex < imagePaths.length - 1) {
+                currentIndex++;
+                updateModalImage();
+            }
+        });
+
+        // 모달 닫기
+        modalClose.click(function() {
+            modal.fadeOut();
+        });
+
+        // 모달 바깥 클릭 시 닫기
+        modal.click(function(event) {
+            if (event.target === this) { modal.fadeOut(); }
+        });
+
+        // Swiper 내부 이미지 버튼 생성
+        $(".swiper-wrapper").html(imagePaths.map((src, index) => `
+            <div class="swiper-slide">
+                <button type="button" onclick="clickPhoto(${index})">
+                    <img src="${src}" alt=""/>
+                </button>
+            </div>
+        `).join(''));
     });
 </script>
