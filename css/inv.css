@@ -1,19 +1,18 @@
 /* 1. 메인 타이틀 */
 #introTitle {
-    position: fixed; right: 0; left: 0; top: 0; bottom: 0; z-index: -1;
+    position: fixed; right: 0; left: 0; top: -3vh; bottom: 0; z-index: -1;
     display: flex;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
     color: #333;
     transition: filter .3s ease-in-out, opacity .3s ease-in-out;
-    will-change: opacity, filter
+    will-change: opacity, filter;
 }
 #introTitle.blur {
     -webkit-filter: blur(.6vw);
     filter: blur(.6vw);
     opacity: .5;
-    /*background: #333333;*/
 }
 /* 메인 아티클 덩어리 */
 #introTitle .left-top { margin-right: 3vw; }
