@@ -18,10 +18,12 @@
     font-style: normal;
 }
 p,h1,h2,h3,h4,h5,h6 { margin: 0; }
+button, .swiper-prev, .swiper-next { -webkit-tap-highlight-color: transparent; }
+button:focus, .swiper-prev:focus, .swiper-next:focus { outline: none; }
 body {
     font-family: 'Eulyoo1945', sans-serif;
     font-weight: 400;
-    padding: 32px 0;
+    padding: 32px 0 120px;
     margin: 0;
     text-align: center;
     word-break: keep-all;
@@ -114,7 +116,7 @@ body {
 .mr-t8 { margin-top: 64px !important; }
 .mr-t9 { margin-top: 72px !important; }
 .mr-t10 { margin-top: 80px !important; }
-
+.mr-b0 { margin-bottom: 0 !important; }
 .mr-b1 { margin-bottom: 8px !important; }
 .mr-b2 { margin-bottom: 16px !important; }
 .mr-b3 { margin-bottom: 24px !important; }
@@ -125,6 +127,28 @@ body {
 .mr-b8 { margin-bottom: 64px !important; }
 .mr-b9 { margin-bottom: 72px !important; }
 .mr-b10 { margin-bottom: 80px !important; }
+.mr-r0 { margin-right: 0 !important; }
+.mr-r1 { margin-right: 8px !important; }
+.mr-r2 { margin-right: 16px !important; }
+.mr-r3 { margin-right: 24px !important; }
+.mr-r4 { margin-right: 32px !important; }
+.mr-r5 { margin-right: 40px !important; }
+.mr-r6 { margin-right: 48px !important; }
+.mr-r7 { margin-right: 56px !important; }
+.mr-r8 { margin-right: 64px !important; }
+.mr-r9 { margin-right: 72px !important; }
+.mr-r10 { margin-right: 80px !important; }
+.mr-l0 { margin-left: 0 !important; }
+.mr-l1 { margin-left: 8px !important; }
+.mr-l2 { margin-left: 16px !important; }
+.mr-l3 { margin-left: 24px !important; }
+.mr-l4 { margin-left: 32px !important; }
+.mr-l5 { margin-left: 40px !important; }
+.mr-l6 { margin-left: 48px !important; }
+.mr-l7 { margin-left: 56px !important; }
+.mr-l8 { margin-left: 64px !important; }
+.mr-l9 { margin-left: 72px !important; }
+.mr-l10 { margin-left: 80px !important; }
 
 .mr-t-05 { margin-top: -4px !important; }
 .mr-t-1 { margin-top: -8px !important; }
@@ -150,6 +174,29 @@ body {
 .mr-b-8 { margin-bottom: -64px !important; }
 .mr-b-9 { margin-bottom: -72px !important; }
 .mr-b-10 { margin-bottom: -80px !important; }
+
+
+.mr-r-1 { margin-right: -8px !important; }
+.mr-r-2 { margin-right: -16px !important; }
+.mr-r-3 { margin-right: -24px !important; }
+.mr-r-4 { margin-right: -32px !important; }
+.mr-r-5 { margin-right: -40px !important; }
+.mr-r-6 { margin-right: -48px !important; }
+.mr-r-7 { margin-right: -56px !important; }
+.mr-r-8 { margin-right: -64px !important; }
+.mr-r-9 { margin-right: -72px !important; }
+.mr-r-10 { margin-right: -80px !important; }
+.mr-l-1 { margin-left: -8px !important; }
+.mr-l-2 { margin-left: -16px !important; }
+.mr-l-3 { margin-left: -24px !important; }
+.mr-l-4 { margin-left: -32px !important; }
+.mr-l-5 { margin-left: -40px !important; }
+.mr-l-6 { margin-left: -48px !important; }
+.mr-l-7 { margin-left: -56px !important; }
+.mr-l-8 { margin-left: -64px !important; }
+.mr-l-9 { margin-left: -72px !important; }
+.mr-l-10 { margin-left: -80px !important; }
+
 
 .ver-t { vertical-align: top; }
 .ver-b { vertical-align: bottom; }
@@ -203,27 +250,67 @@ body {
     font-feature-settings: 'salt' 1;
 }
 @media screen and (max-width: 767px) {
-    .content { padding: 24px 16px 16px; }
+    /*.content { padding: 24px 16px 16px; }*/
+    .content { padding: 24px 20px 16px; }
 }
 
 .inv-button {
     font-family: 'Eulyoo1945', sans-serif;
     border: none;
     padding: 13px 16px;
+    min-width: 96px;
     margin: 0 0 11px;
     background: #434742;
     border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0,0,0,.15);
     color: #fff;
     font-size: 14px;
     line-height: 14px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,.15);
+}
+.kakao-pay-button {
+    display: inline-block;
+    min-width: 116px;
+    min-height: 40px;
+    background: #ffd000 url(../img/svg/ico_kakaopay.svg) center / 50% no-repeat;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
 }
 @media screen and (min-width: 768px) {
+    .kakao-pay-button:hover,
+    .kakao-pay-button:focus,
     .inv-button:hover,
     .inv-button:focus { opacity: .8; }
 }
+.kakao-pay-button:active,
 .inv-button:active { opacity: .8; }
+
+
+.accordion-button {
+    position: relative;
+    width: calc(100% - 8px);
+    padding: 10px;
+    border: none;
+    background: #434742; color: #fff;
+    text-align: left;
+    border-radius: 8px;
+}
+.accordion-button > .inv-ico {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    width: 18px;
+    height: 20px;
+    background: url("../img/svg/ico_bracket--w.svg") center / contain no-repeat;
+    transition: transform .3s;
+    /*pointer-events: none;*/
+}
+.accordion-button.on { opacity: 0.8; }
+.accordion-button.on > .inv-ico { transform: rotate(-180deg); }
+.accordion-content { display: none; }
+
+
 
 
 

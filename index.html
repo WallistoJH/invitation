@@ -7,10 +7,10 @@
     <title>박재한&계유미 결혼합니다.</title>
 
 
-    <meta property="og:url" content="사이트url">
-    <meta property="og:title" content="제목">
+    <meta property="og:url" content="park-kye.com">
+    <meta property="og:title" content="박재한 · 계유미 결혼식에 초대합니다.">
     <meta property="og:image" content="../img/output_01.jpg">
-    <meta property="og:description" content="사이트 설명">
+    <meta property="og:description" content="2025년 3월 22일 12시 10분">
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -24,17 +24,7 @@
 
     <style>
 
-        form {
-            margin: 20px 0;
-        }
-        input, textarea {
-            width: 80%;
-            margin-bottom: 10px;
-            font-size: 16px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+
 
 
 
@@ -44,6 +34,7 @@
 </head>
 <body class="">
 
+<!--<h4 id="Invited" class="title-en">You're Invited</h4>-->
 
 <section id="introTitle" class="font-0      ">
 
@@ -61,11 +52,16 @@
         <h4 class="intro-en">Wedding Invitation</h4>
         <h6 class="intro-kr">결혼식에 초대합니다</h6>
     </article>
+
+    <article id="scrollIndicate">
+        <span class="inv-ico"></span>
+<!--        <span class="body-kr">아래로 내려보세요</span>-->
+    </article>
 </section>
 
 
 <!-- 인사말 -->
-<section id="introContent" class="dis-none">
+<section id="introContent" class="dis-no1ne">
     <article class="content">
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
@@ -107,7 +103,7 @@
 
 
 <!-- 오시는 길 -->
-<section id="contact_map" class="dis-n1one"  >
+<section id="contact_map" class="dis-no1ne"  >
     <article class="content">
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
@@ -115,7 +111,17 @@
                 Venue & Directions
                 <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">오시는 길</span>
             </p>
+
+            <div class="top mr-t4 mr-b4">
+                <p class="body2-kr">
+                    서울 송파구 송파대로 155 NH송파농협 <br/>
+                    더컨벤션 송파문정점<br/>
+                    12층 그랜드볼룸홀
+                </p>
+            </div>
+
         </aside>
+
         <!-- 지도 맵 -->
         <aside id="invMap" class="mr-t4"></aside>
         <!-- 경로 버튼 -->
@@ -142,7 +148,7 @@
                 <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">대중교통 · 자가용</span>
             </p>
         </aside>
-        <div class="top mr-t3 font-0" style="margin-left: -12px; margin-right: -12px;">
+        <div class="top mr-t4 font-0" style="margin-left: -12px; margin-right: -12px;">
             <div class="dis-inline-block left half ver-t">
                 <p class="body2-kr pd-l1 pd-r1">
 <!--                    <strong>대중교통</strong><br/><br/>-->
@@ -184,7 +190,7 @@
                 <p class="body2-kr">
                     <span class="color-subtitle">- 참고사항 -</span><br/>
                     <strong>문정법조타운·건영아파트 정류소에서 도보 4분</strong><br/>
-                    <strong>대중교통 정책에 따라 일부 변동될 수 있습니다.</strong><br/><br/>
+                    <span>대중교통 정책에 따라 일부 변동될 수 있습니다.</span><br/><br/>
                     <span class="color-subtitle">- 무료주차 안내 -</span><br/>
                     <strong>하객분들은 <span class="color-point">2시간 무료 주차 가능</span>합니다.</strong><br/>
                     <span class="">(식사 연회장 입구 안내 데스크에서 발급)</span>
@@ -199,7 +205,7 @@
 
 
 <!-- 이미지 -->
-<section id="photo">
+<section id="photo" class="dis-no1ne">
     <article class="content">
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
@@ -210,6 +216,7 @@
         </aside>
         <!-- 콘텐츠 내용 -->
         <aside id="photoWrap" class="mr-t4"></aside>
+
         <p class="deco-line">_</p>
     </article>
 </section>
@@ -225,50 +232,75 @@
                 With Love & Gratitude
                 <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">마음 전하실 곳</span>
             </p>
-        </aside>
-        <div class="top mr-t4 mr-b4 font-0">
-            <div class="dis-inline-block left half ver-t">
+
+
+
+            <div class="mr-t4 mr-b4">
                 <p class="body2-kr">
-                    <span class="color-subtitle">- 신랑 -</span><br/>
-                    <!-- 신랑 계좌 -->
-                    <strong>우리은행 박재한</strong><br/>
-                    <strong id="m-account">1002-556-542411</strong><br/>
-                    <button class="inv-button m mr-t05" data-text="신랑(박재한님) 계좌번호" data-copy="m-account">계좌 복사</button><br/>
-                    <br/>
-                    <!-- 신랑 아버지 계좌 -->
-                    <strong>신랑 아버지</strong><br/>
-                    기업은행 박화일<br/>
-                    <span id="m-father-account">010-8538-0080</span><br/>
-                    <button class="inv-button m mr-t05" data-text="신랑 아버지(박화일님) 계좌번호" data-copy="m-father-account">계좌 복사</button><br/>
-                    <br/>
-                    <!-- 신랑 어머니 계좌 -->
-                    <strong>신랑 어머니</strong><br/>
-                    대구은행 이명자<br/>
-                    <span id="m-mother-account">092-08-133-775</span><br/>
-                    <button class="inv-button m mr-t05" data-text="신랑 어머니(이명자님) 계좌번호" data-copy="m-mother-account">계좌 복사</button><br/>
+                    참석이 어려우신 분들을 위해 <br/>아래 계좌번호를 기재하였습니다.<br/>
+                    너그러운 마음으로 양해 부탁드립니다.
                 </p>
+            </div>
+
+        </aside>
+        <div class="top mr-t4 mr-b4 font-0 mr-l-1 mr-r-1">
+            <div class="dis-inline-block left half ver-t">
+
+
+                <button class="accordion-button" style="background-color: #485664">
+                    <span class="body2-kr">신랑측 계좌번호</br>확인하기</span>
+                    <span class="inv-ico"></span>
+                </button>
+                <div class="accordion-content mr-t2">
+                    <p class="body2-kr">
+                        <span class="color-subtitle">- 신랑 -</span><br/>
+                        <!-- 신랑 계좌 -->
+                        <strong>우리은행 박재한</strong><br/>
+                        <strong id="m-account">1002-556-542411</strong><br/>
+                        <button class="inv-button m mr-t05" data-text="신랑(박재한님) 계좌번호" data-copy="m-account">계좌 복사하기</button><br/>
+                        <a href="https://qr.kakaopay.com/Ej8l5LkLt" class="kakao-pay-button" target="_blank">
+                            <span class="inv-ico kakao_pay"></span>
+                        </a><br/>
+                        <br/>
+                        <!-- 신랑 아버지 계좌 -->
+                        <span class="color-subtitle">- 신랑 아버지 -</span><br/>
+                        <strong>기업은행 박화일</strong><br/>
+                        <strong id="m-father-account">010-8538-0080</strong><br/>
+                        <button class="inv-button m mr-t05" data-text="신랑 아버지(박화일님) 계좌번호" data-copy="m-father-account">계좌 복사하기</button><br/>
+                        <br/>
+                        <!-- 신랑 어머니 계좌 -->
+                        <span class="color-subtitle">- 신랑 어머니 -</span><br/>
+                        <strong>대구은행 이명자</strong><br/>
+                        <strong id="m-mother-account">092-08-133-775</strong><br/>
+                        <button class="inv-button m mr-t05" data-text="신랑 어머니(이명자님) 계좌번호" data-copy="m-mother-account">계좌 복사하기</button><br/>
+                    </p>
+                </div>
             </div>
             <div class="dis-inline-block right half ver-t">
 
-                <p class="body2-kr">
-                    <strong>신부</strong><br/>
-                    <!-- 신부 계좌 -->
-                    00은행 계유미<br/>
-                    <span id="f-account">000-신부-000</span><br/>
-                    <button class="inv-button m mr-t05" data-text="신부(계유미님) 계좌번호" data-copy="f-account">계좌 복사</button><br/>
-                    <br/>
-                    <!-- 신부 아버지 계좌 -->
-                    <strong>신부 아버지</strong><br/>
-                    000 계인걸<br/>
-                    <span id="f-father-account">000-신부아버님-000</span><br/>
-                    <button class="inv-button m mr-t05" data-text="신부 아버지(계인걸님) 계좌번호" data-copy="f-father-account">계좌 복사</button><br/>
-                    <br/>
-                    <!-- 신부 어머니 계좌 -->
-                    <strong>신부 어머니</strong><br/>
-                    00은행 한경희<br/>
-                    <span id="f-mother-account">000-신부어머님-000</span><br/>
-                    <button class="inv-button m mr-t05" data-text="신부 어머니(한경희님) 계좌번호" data-copy="f-mother-account">계좌 복사</button><br/>
-                </p>
+                <button class="accordion-button" style="background-color: #64484c;">
+                    <span class="body2-kr">신부측 계좌번호<br/>확인하기</span>
+                    <span class="inv-ico"></span>
+                </button>
+                <div class="accordion-content mr-t2">
+                    <p class="body2-kr">
+                        <span class="color-subtitle">- 신부 -</span><br/>
+                        <!-- 신부 계좌 -->
+                        <strong>00은행 계유미</strong><br/>
+                        <strong id="f-account">000-신부-000</strong><br/>
+                        <button class="inv-button m mr-t05" data-text="신부(계유미님) 계좌번호" data-copy="f-account">계좌 복사하기</button><br/>
+                        <a href="https://qr.kakaopay.com/Ej8l5LkLt" class="kakao-pay-button" target="_blank">
+                            <span class="inv-ico kakao_pay"></span>
+                        </a><br/>
+                        <br/>
+                        <!-- 신부 아버지 계좌 -->
+                        <span class="color-subtitle">- 신부 아버지 -</span><br/>
+                        <strong>000 계인걸</strong><br/>
+                        <strong id="f-father-account">000-신부아버님-000</strong><br/>
+                        <button class="inv-button m mr-t05" data-text="신부 아버지(계인걸님) 계좌번호" data-copy="f-father-account">계좌 복사하기</button><br/>
+                        <br/>
+                    </p>
+                </div>
 
             </div>
             <div class="dis-block">
@@ -291,42 +323,67 @@
                 Guestbook
                 <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">방명록</span>
             </p>
+
+            <div class="mr-t4 mr-b4">
+                <p class="body2-kr">
+                    결혼을 축복해 주셔서 감사합니다.<br/>
+                    여러분의 따뜻한 말씀이 큰 힘이 됩니다.
+                </p>
+            </div>
+
         </aside>
+
         <aside id="guestBookList">
 
+            <!-- Firebase SDK -->
+            <!-- 방명록 폼 (비밀번호 입력 추가) -->
+            <form id="guestbookForm" class="mr-t4">
+                <input class="body-kr" type="text" id="name" placeholder="닉네임을 적어주세요." required>
+                <textarea class="body-kr" id="message" placeholder="축복과 응원의 글을 남겨주세요 :)" required></textarea>
+                <input class="body-kr" type="password" id="password" placeholder="작성글 비밀번호 입력" required>
+                <button type="submit" class="inv-button flu"><span class="body-kr">작성한 방명록 올리기</span></button>
+            </form>
+
+            <!-- 메시지 목록(마키 효과 적용) -->
+            <div class="messages mr-t10" id="messages">
+
+                <p class="title-en">
+                    Guestbook List
+                    <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">따뜻한 목소리</span>
+                </p>
+                <!-- marquee 효과를 적용할 컨테이너 -->
+                <div class="marquee-container">
+                    <!-- JS에서 메시지 아이템들을 복제하여 삽입 -->
+                    <div class="marquee-content" id="marqueeContent"></div>
+                </div>
+            </div>
+
 
 
         </aside>
+
+        <div class="dis-block">
+            <p class="deco-line">_</p>
+        </div>
 
     </article>
 </section>
 
 
 
-<!-- Firebase SDK -->
-<!-- 방명록 폼 (비밀번호 입력 추가) -->
-<!-- Firebase SDK -->
-<!-- 방명록 폼 (비밀번호 입력 추가) -->
-<form id="guestbookForm">
-    <input type="text" id="name" placeholder="이름을 입력하세요" required><br>
-    <textarea id="message" placeholder="내용을 입력하세요" required></textarea><br>
-    <input type="password" id="password" placeholder="비밀번호 입력" required><br>
-    <button type="submit">제출</button>
-</form>
-
-<!-- 메시지 목록(마키 효과 적용) -->
-<div class="messages" id="messages">
-    <h2>메시지 목록</h2>
-    <!-- marquee 효과를 적용할 컨테이너 -->
-    <div class="marquee-container">
-        <!-- JS에서 메시지 아이템들을 복제하여 삽입 -->
-        <div class="marquee-content" id="marqueeContent"></div>
-    </div>
-</div>
 
 
 
 
+
+
+
+
+<P class="title-en">Jaehan Park</P>
+<p class="body2-kr">
+    본 모바일 청첩장은 신랑이 직접 제작하였습니다.<br/>
+    ©2025 Jaehan Park, All rights reserved.
+</p>
 
 
 
@@ -422,12 +479,15 @@
             const { name, message, date, password } = childSnapshot.val();
             contentHTML += `
               <div class="message">
-                <strong>${name}</strong> <em>(${date})</em>
-                <span>${message}</span>
-                <br>
-                <em style="color:red;">(테스트용 비밀번호: ${password})</em>
-                <br>
-                <button class="delete-button" onclick="deleteMessage('${messageId}')">삭제</button>
+                              <button class="delete-button inv-button" onclick="deleteMessage('${messageId}')"></button>
+
+                <div class="message-wrap">
+                <div class="body body-kr">${message}</div>
+                <div class="title">
+                    <strong>${name}</strong> <em>${date}</em>
+                </div>
+                </div>
+
               </div>
             `;
         });
@@ -447,7 +507,7 @@
             // 복제 전의 원본 폭은 전체의 절반
             const originalWidth = totalWidth / 2;
             // 픽셀당 속도 (예: 50px/sec). 원하는 값으로 조정하세요.
-            const speed = 300;
+            const speed = 40;
             // 애니메이션 지속시간(초) = 원본 폭 / 속도
             const duration = originalWidth / speed;
             marqueeContent.style.animationDuration = `${duration}s`;
@@ -659,10 +719,10 @@
             const swiper = new Swiper("#photoWrap--swiper", {
                 slidesPerView: "auto",
                 spaceBetween: 8,
-                speed: 1000,
+                speed: 600,
                 loop: false,
                 autoplay: {
-                    delay: 1500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 },
                 centeredSlides: true,
@@ -676,6 +736,10 @@
                     nextEl: '.swiper-next',
                     prevEl: '.swiper-prev',
                 },
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'fraction',  // Fraction 타입 (예: 1/4)
+                },
                 cssMode: false,
                 effect: 'slide',
                 // Breakpoints 옵션: 768px 이상에서는 터치 비활성화
@@ -685,7 +749,7 @@
                         simulateTouch: false,
                         grabCursor: false,
                     }
-                }
+                },
             });
         });
     });
@@ -694,21 +758,25 @@
 
 
 
-
-
-
+<!--<h1>2025년 3월 22일 오후 12시 10분 (KST)까지 남은 시간</h1>-->
+<div id="countdown" class="title-en dis-none"></div>
 
 
 
 
 <!-- 모달 팝업 -->
-<!-- 모달 HTML (display:none으로 초기 숨김) -->
 <div id="imageModal" class="modal" style="display: none;">
-    <span class="modal-close">&times;</span>
+    <p class="body-kr" style=" position: absolute; top: 16px; right: 56px; text-align: right; pointer-events: none;"><span>이미지 닫기</span></p>
+    <span id="imageModalClose" class="modal-close"></span>
     <img class="modal-content" id="modalImage" alt="모달 이미지">
-    <button class="modal-prev">&lt;</button>
-    <button class="modal-next">&gt;</button>
+
+    <!-- 이전/다음 버튼: 내부에는 별도 화살표 요소를 두지 않습니다 -->
+    <button class="modal-prev"></button>
+    <button class="modal-next"></button>
+
+    <span id="imageModalCloseButton" class="modal-close">이미지 닫기</span>
 </div>
+
 
 </body>
 </html>
