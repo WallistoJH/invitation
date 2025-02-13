@@ -164,14 +164,6 @@ body {
     word-spacing: -6px;
 }
 
-.deco-line {
-    font-family: 'Brachetto', sans-serif;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 32px;
-    margin: 16px -140px 20px 0;
-    font-feature-settings: 'salt' 1;
-}
 
 .body-kr {     font-family: 'Eulyoo1945', sans-serif;
     font-size: 16px; line-height: 28px; letter-spacing: -.3px; word-spacing: -.8px; }
@@ -184,16 +176,16 @@ body {
     text-decoration-style: solid;
     text-underline-offset: 0.35em;
     text-decoration-thickness: 0.07em;
-    text-decoration-color: #e12b70;
+    text-decoration-color: #333;
 }
 
 .content {
-    width: calc(100% - 24px);
+    width: calc(100% - 32px);
     max-width: 480px;
-    padding: 32px 24px;
+    padding: 56px 24px 32px;
     margin: 0 auto 64px;
     overflow: hidden;
-    background: rgba(251,251,251,.6);
+    background: rgba(255,255,255,.8);
     box-sizing: border-box;
     border: 1px solid #f1f1f1;
     border-radius: 12px;
@@ -201,8 +193,17 @@ body {
     backdrop-filter: blur(12px);
     box-shadow: 0 0 16px rgba(0,0,0,0.05);
 }
+.deco-line {
+    font-family: 'Brachetto', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 0;
+    margin: 16px -140px 20px 0;
+    padding: 24px 0 48px;
+    font-feature-settings: 'salt' 1;
+}
 @media screen and (max-width: 767px) {
-    .content { padding: 24px 20px 16px; }
+    .content { padding: 24px 16px 16px; }
 }
 
 .inv-button {
@@ -223,3 +224,19 @@ body {
     .inv-button:focus { opacity: .8; }
 }
 .inv-button:active { opacity: .8; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

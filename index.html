@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no, address=no, email=no" />
     <title>박재한&계유미 결혼합니다.</title>
+
+
+    <meta property="og:url" content="사이트url">
+    <meta property="og:title" content="제목">
+    <meta property="og:image" content="../img/output_01.jpg">
+    <meta property="og:description" content="사이트 설명">
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="css/guide.css" rel="stylesheet">
@@ -27,42 +35,14 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .messages {
-            margin-top: 20px;
-            text-align: left;
-            max-width: 600px;
-            margin: 0 auto;
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-        }
-        .message {
-            margin-bottom: 10px;
-            padding: 5px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-        }
-        .delete-button {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            align-self: flex-end;
-        }
-        .delete-button:hover {
-            background-color: #c0392b;
-        }
+
 
 
 
 
     </style>
 </head>
-<body>
+<body class="">
 
 
 <section id="introTitle" class="font-0      ">
@@ -85,13 +65,13 @@
 
 
 <!-- 인사말 -->
-<section id="introContent" class="dis-no1ne">
+<section id="introContent" class="dis-none">
     <article class="content">
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
             <p class="title-en">
                 Greeting Message
-                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">인사말</span>
+                <strong class="dis-block body-kr text-deco--line" style="margin-top: -4px">인사말</strong>
             </p>
             <p class="body-kr" style="word-break: break-all">
                 박수와 축복 속에서 새로운 시작을 맞이합니다. <span>✿</span> 재미있고 행복한 날들을 함께 만들어 가려 합니다. <span>✿</span> 한결같이 서로를 아끼고 사랑하며 걸어가겠습니다. <span>✿</span> 계절이 바뀌어도 변함없는 마음으로 서겠습니다. <span>✿</span> 유난히 따뜻할 그날, 여러분과 함께하고 싶습니다. <span>✿</span> 미래로 내딛는 첫걸음에 소중한 발걸음을 부탁드립니다.
@@ -101,12 +81,12 @@
         <aside class="content-body font-0">
             <div class="top mr-t4 mr-b4">
                 <div class="dis-inline-block left half">
-                    <p class="body-kr">박화일 · 이명자 의 아들</p>
+                    <p class="body-kr">박화일 · 이명자의 아들</p>
                     <p class="title-en">Jaehan</p>
                     <p class="body-kr">재한</p>
                 </div>
                 <div class="dis-inline-block right half">
-                    <p class="body-kr">계인걸 · 한경희 의 딸</p>
+                    <p class="body-kr">계인걸 · 한경희의 딸</p>
                     <p class="title-en">Yoomee</p>
                     <p class="body-kr">유미</p>
                 </div>
@@ -114,7 +94,7 @@
             <div class="bottom">
                 <p class="body-kr">
                     2025. 03. 22. (토) 12:10<br/>
-                    더컨벤션 송파문정, 12층 그랜드볼룸
+                    더컨벤션 송파문정<br/>12층 그랜드볼룸
                 </p>
             </div>
         </aside>
@@ -124,8 +104,6 @@
 
     </article>
 </section>
-
-
 
 
 <!-- 오시는 길 -->
@@ -139,22 +117,32 @@
             </p>
         </aside>
         <!-- 지도 맵 -->
-        <aside id="map" class="mr-t4"></aside>
+        <aside id="invMap" class="mr-t4"></aside>
         <!-- 경로 버튼 -->
         <div id="mapLoadWrap">
-            <a class="nv body2-kr" href="javascript:naverMap('더컨벤션 송파문정','37.484235','127.122730');">네이버맵<br/>경로 안내</a>
-            <a class="ka body2-kr" href="javascript:kakaoMap('더컨벤션 송파문정','37.484235','127.122730');">카카오맵<br/>경로 안내</a>
-            <a class="tm body2-kr" href="javascript:tMap('더컨벤션 송파문정','37.484235','127.122730');">티맵<br/>경로 안내</a>
+            <a class="nv body-kr" href="javascript:naverMap('더컨벤션 송파문정','37.484235','127.122730');">
+                <span class="inv-ico naver_map"></span>
+                <span>네이버맵</span>
+            </a>
+            <a class="ka body-kr" href="javascript:kakaoMap('더컨벤션 송파문정','37.484235','127.122730');">
+                <span class="inv-ico kakao_map"></span>
+                <span>카카오맵</span>
+            </a>
+            <a class="tm body-kr" href="javascript:tMap('더컨벤션 송파문정','37.484235','127.122730');">
+                <span class="inv-ico t_map"></span>
+                <span>티맵</span>
+            </a>
         </div>
+        <p class="body2-kr mr-t2 color-subtitle">위의 버튼을 눌러 길찾기 기능을 시작하세요.</p>
         <!-- 정보 -->
 
-        <aside class="content-title mr-t8">
+        <aside class="content-title mr-t10">
             <p class="title-en">
                 Travel Directions
-                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">대중교통 / 자가용</span>
+                <span class="dis-block body-kr text-deco--line" style="margin-top: -4px">대중교통 · 자가용</span>
             </p>
         </aside>
-        <div class="top mr-t3 mr-b4 font-0" style="margin-left: -12px; margin-right: -12px;">
+        <div class="top mr-t3 font-0" style="margin-left: -12px; margin-right: -12px;">
             <div class="dis-inline-block left half ver-t">
                 <p class="body2-kr pd-l1 pd-r1">
 <!--                    <strong>대중교통</strong><br/><br/>-->
@@ -196,10 +184,10 @@
                 <p class="body2-kr">
                     <span class="color-subtitle">- 참고사항 -</span><br/>
                     <strong>문정법조타운·건영아파트 정류소에서 도보 4분</strong><br/>
-                    <strong>대중교통 정책에 따라 일부 변동될 수 있음.</strong><br/><br/>
+                    <strong>대중교통 정책에 따라 일부 변동될 수 있습니다.</strong><br/><br/>
                     <span class="color-subtitle">- 무료주차 안내 -</span><br/>
-                    <strong class="color-point">하객 2시간 무료 주차 가능.</strong><br/>
-                    <span class="">(식사 연회장 입구 안내 데스크에서 발행.)</span>
+                    <strong>하객분들은 <span class="color-point">2시간 무료 주차 가능</span>합니다.</strong><br/>
+                    <span class="">(식사 연회장 입구 안내 데스크에서 발급)</span>
                 </p>
             </div>
             <p class="deco-line">_</p>
@@ -305,126 +293,193 @@
             </p>
         </aside>
         <aside id="guestBookList">
-            <div class="messages" id="messages">
-                <!-- 메시지가 여기에 표시됩니다 -->
-            </div>
+
+
+
         </aside>
 
     </article>
 </section>
 
 
-<h5>방명록</h5>
-<!-- 지도가 표시될 영역 -->
+
+<!-- Firebase SDK -->
+<!-- 방명록 폼 (비밀번호 입력 추가) -->
+<!-- Firebase SDK -->
+<!-- 방명록 폼 (비밀번호 입력 추가) -->
+<form id="guestbookForm">
+    <input type="text" id="name" placeholder="이름을 입력하세요" required><br>
+    <textarea id="message" placeholder="내용을 입력하세요" required></textarea><br>
+    <input type="password" id="password" placeholder="비밀번호 입력" required><br>
+    <button type="submit">제출</button>
+</form>
+
+<!-- 메시지 목록(마키 효과 적용) -->
+<div class="messages" id="messages">
+    <h2>메시지 목록</h2>
+    <!-- marquee 효과를 적용할 컨테이너 -->
+    <div class="marquee-container">
+        <!-- JS에서 메시지 아이템들을 복제하여 삽입 -->
+        <div class="marquee-content" id="marqueeContent"></div>
+    </div>
+</div>
 
 
 
-    <form id="guestbookForm">
-        <input type="text" id="name" placeholder="이름을 입력하세요" required><br>
-        <textarea id="message" placeholder="내용을 입력하세요" required></textarea><br>
-        <button type="submit">제출</button>
-    </form>
 
 
 
 
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-        import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+<script type="module">
+    // 방명록
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue, remove, get } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyBJoFj30tCRzjty-clry4dZ8cIUu4pYyC0",
-            authDomain: "invitation-wallisto.firebaseapp.com",
-            databaseURL: "https://invitation-wallisto-default-rtdb.firebaseio.com",
-            projectId: "invitation-wallisto",
-            storageBucket: "invitation-wallisto.appspot.com",
-            messagingSenderId: "484897874480",
-            appId: "1:484897874480:web:e3952ead0b42df756903f5",
-            measurementId: "G-4XQEQ646GY"
-        };
+    const firebaseConfig = {
+        apiKey: "AIzaSyBJoFj30tCRzjty-clry4dZ8cIUu4pYyC0",
+        authDomain: "invitation-wallisto.firebaseapp.com",
+        databaseURL: "https://invitation-wallisto-default-rtdb.firebaseio.com",
+        projectId: "invitation-wallisto",
+        storageBucket: "invitation-wallisto.appspot.com",
+        messagingSenderId: "484897874480",
+        appId: "1:484897874480:web:e3952ead0b42df756903f5",
+        measurementId: "G-4XQEQ646GY"
+    };
 
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-        const form = document.getElementById('guestbookForm');
-        const nameInput = document.getElementById('name');
-        const messageInput = document.getElementById('message');
-        const messagesDiv = document.getElementById('messages');
+    const form = document.getElementById('guestbookForm');
+    const nameInput = document.getElementById('name');
+    const messageInput = document.getElementById('message');
+    const passwordInput = document.getElementById('password');
+    // marqueeContent에 메시지를 넣음
+    const marqueeContent = document.getElementById('marqueeContent');
 
-        // 메시지 제출
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = nameInput.value.trim();
-            const message = messageInput.value.trim();
-            const date = new Date().toLocaleString(); // 현재 날짜 및 시간
+    // 날짜 포맷 함수: 초 없이 AM/PM 형식 (예: 2025. 02. 13. PM 9:02)
+    const formatDate = () => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const period = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12;
+        return `${year}. ${month}. ${day}. ${period} ${hours}:${minutes}`;
+    };
 
-            if (name && message) {
-                try {
-                    await push(ref(db, 'messages'), { name, message, date });
-                    nameInput.value = ''; // 입력 필드 초기화
-                    messageInput.value = '';
-                } catch (error) {
-                    console.error('메시지 전송 중 오류 발생:', error);
-                }
+    // 메시지 제출
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+        const password = passwordInput.value.trim();
+        const date = formatDate();
+
+        if (name && message && password) {
+            try {
+                await push(ref(db, 'messages'), { name, message, password, date });
+                nameInput.value = '';
+                messageInput.value = '';
+                passwordInput.value = '';
+            } catch (error) {
+                console.error('메시지 전송 중 오류 발생:', error);
             }
+        }
+    });
+
+    // 메시지 삭제 함수
+    const deleteMessage = async (messageId) => {
+        const enteredPassword = prompt("삭제하려면 비밀번호를 입력하세요:");
+        if (!enteredPassword) return;
+
+        try {
+            const messageRef = ref(db, `messages/${messageId}`);
+            const snapshot = await get(messageRef);
+            const messageData = snapshot.val();
+
+            if (messageData && messageData.password === enteredPassword) {
+                await remove(messageRef);
+                alert("메시지가 삭제되었습니다.");
+            } else {
+                alert("비밀번호가 틀렸습니다.");
+            }
+        } catch (error) {
+            console.error('메시지 삭제 중 오류 발생:', error);
+        }
+    };
+
+
+    // 메시지 목록 실시간 업데이트 (마키 효과용)
+    onValue(ref(db, 'messages'), (snapshot) => {
+        let contentHTML = '';
+
+        // 메시지 아이템들을 inline-block 형태로 문자열 생성
+        snapshot.forEach((childSnapshot) => {
+            const messageId = childSnapshot.key;
+            const { name, message, date, password } = childSnapshot.val();
+            contentHTML += `
+              <div class="message">
+                <strong>${name}</strong> <em>(${date})</em>
+                <span>${message}</span>
+                <br>
+                <em style="color:red;">(테스트용 비밀번호: ${password})</em>
+                <br>
+                <button class="delete-button" onclick="deleteMessage('${messageId}')">삭제</button>
+              </div>
+            `;
         });
 
-        // 메시지 삭제 함수
-        const deleteMessage = async (messageId) => {
-            if (confirm('이 메시지를 삭제하시겠습니까?')) {
-                try {
-                    await remove(ref(db, `messages/${messageId}`));
-                } catch (error) {
-                    console.error('메시지 삭제 중 오류 발생:', error);
-                }
-            }
-        };
+        // 만약 내용이 없다면 아무것도 하지 않음
+        if (!contentHTML) {
+            marqueeContent.innerHTML = "";
+            return;
+        }
 
-        // 메시지 목록 실시간 업데이트
-        onValue(ref(db, 'messages'), (snapshot) => {
-            // messagesDiv.innerHTML = '<h2>메시지 목록</h2>';
-            snapshot.forEach((childSnapshot) => {
-                const messageId = childSnapshot.key;
-                const { name, message, date } = childSnapshot.val();
-                const p = document.createElement('div');
-                p.className = 'message';
-                p.innerHTML = `
-                    <strong>${name}</strong> <em>(${date})</em>
-                    <span>${message}</span>
-                    <button class="delete-button" onclick="deleteMessage('${messageId}')">삭제</button>
-                `;
-                messagesDiv.appendChild(p);
-            });
+        // 복제하여 연속 스크롤을 위한 마키 콘텐츠 구성 (원본 + 복제)
+        marqueeContent.innerHTML = contentHTML + contentHTML;
+
+        // 레이아웃 완료 후, 첫 번째 그룹의 전체 폭을 측정하고 애니메이션 지속시간을 설정
+        requestAnimationFrame(() => {
+            const totalWidth = marqueeContent.scrollWidth;
+            // 복제 전의 원본 폭은 전체의 절반
+            const originalWidth = totalWidth / 2;
+            // 픽셀당 속도 (예: 50px/sec). 원하는 값으로 조정하세요.
+            const speed = 300;
+            // 애니메이션 지속시간(초) = 원본 폭 / 속도
+            const duration = originalWidth / speed;
+            marqueeContent.style.animationDuration = `${duration}s`;
         });
-        window.deleteMessage = deleteMessage;
+    });
+
+    // deleteMessage 함수를 전역으로 노출 (onclick에서 사용)
+    window.deleteMessage = deleteMessage;
+</script>
 
 
 
 
-
-
-
-
-
-
-
-    </script>
 
 <!-- 네이버 지도 -->
     <script>
         //지도 생성 시에 옵션을 지정할 수 있습니다.
-        var map = new naver.maps.Map('map', {
+        var map = new naver.maps.Map('invMap', {
             center: new naver.maps.LatLng(37.484235, 127.122730), //지도의 초기 중심 좌표
             zoom: 17, //지도의 초기 줌 레벨
             minZoom: 2, //지도의 최소 줌 레벨
             scrollWheel: false,
             zoomControl: true, //줌 컨트롤의 표시 여부
-            zoomControlOptions: { //줌 컨트롤의 옵션
-                position: naver.maps.Position.TOP_RIGHT
-            }
+            zoomControlOptions: {
+                position: naver.maps.Position.RIGHT_CENTER,
+                offset: new naver.maps.Point(0, -50) // y축 음수 값: 위쪽으로 50px 이동
+            },
+            logoControl: false,
+            padding:  {top: 0, right: 0, bottom: 0, left: 0}
+
         });
+
 
         // 마커 위치 설정
         var markerPosition = new naver.maps.LatLng(37.484235, 127.122730);
@@ -446,7 +501,7 @@
         });
 
         //setOptions 메서드를 이용해 옵션을 조정할 수도 있습니다.
-        map.setOptions("mapTypeControl", true); //지도 유형 컨트롤의 표시 여부
+        // map.setOptions("mapTypeControl", true); //지도 유형 컨트롤의 표시 여부
 
         naver.maps.Event.addListener(map, 'zoom_changed', function (zoom) {
             console.log('zoom:' + zoom);

@@ -1,3 +1,38 @@
+body {
+    /*background-color: #ffffff;*/
+    background-color: #ccc;
+    transition: background-color ease-in-out .3s;
+    will-change: background-color;
+}
+body.scroll-on { background-color: #ccc; }
+
+
+body:before,
+body:after{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 24px;
+    pointer-events: none;
+    background: linear-gradient( to top, rgba(204,204,204,1), rgba(204,204,204,0));
+    content: '';
+}
+body:after {
+    bottom: auto;
+    top: 0;
+    background: linear-gradient( to bottom, #ccc, rgba(0,0,0,0));
+}
+body > section {
+    min-height: calc(100vh - 32px);
+    display: flex;
+    align-items: center;
+}
+
+
 /* 1. 메인 타이틀 */
 #introTitle {
     position: fixed; right: 0; left: 0; top: -3vh; bottom: 0; z-index: -1;
@@ -37,16 +72,21 @@
     .intro-kr { font-size: 14px; line-height: 14px; font-weight: 400;}
 }
 
+
+
 /* 2. 텍스트 타이틀 */
 #introContent {
-    margin-top: 100vh;
+    /*margin-top: 100vh;*/
 }
 #introContent .content .content-title .title-en { white-space: nowrap; }
 #introContent .content .content-title .body-kr {
     text-align: justify;
     letter-spacing: -0.6px;
-    word-spacing: -1.8px;
+    word-spacing: -1.2px;
     text-align-last: center;
+    padding: 0 4px;
+    max-width: 360px;
+    margin: 0 auto;
 }
 #introContent .content .content-title .body-kr span { font-size: 12px; position: relative; top: -2px; }
 /* 콘텐츠 바디 */
@@ -57,49 +97,68 @@
 
 /* 오시는 길 지도 */
 /* 지도 표시 영역 CSS */
-#map {
+#invMap {
     position: relative;
     width: 100%;
     height: 0;
     margin: 0;
     padding: 0 0 100%;
     border: 1px solid #ccc;
-    border-radius: 16px;
+    /*border-radius: 8px;*/
+    border-radius: 8px;
+
 }
-#map:after {
+#invMap:after {
     position: absolute;
     top: 0; right: 0; left: 0; bottom: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    backdrop-filter: grayscale(.4);
-    -webkit-backdrop-filter: grayscale(.4);
+    backdrop-filter: grayscale(.2);
+    -webkit-backdrop-filter: grayscale(.2);
+    /*border-radius: 1000px 1000px 8px 8px;*/
     content: '';
 }
+
 .marker {
-    background-color: #465b43;
+    background-color: #434742;
     color: white;
-    padding: 8px 16px;
-    font-size: 15px;
-    line-height: 22px;
+    /*padding: 8px 16px;*/
+    font-size: 14px;
+    line-height: 21px;
     letter-spacing: -1px;
-    border-radius: 16px;
+    /*border-radius: 8px;*/
     text-align: center;
     cursor: pointer;
     position: relative;
     white-space: nowrap;
-}
-.marker::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -8px;
-    width: 0;
     height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 8px solid #465b43;
-    transform: translateX(-50%);
+    border-radius: 1000px;
+    padding: 16px 12px calc(100% - 16px);
+    /*padding: 16px 12px calc(100% - 20px);*/
+    /*border: 2px solid #fff;*/
+    box-shadow: 0 0 18px rgba(0,0,0,.3);
+}
+.marker::before,
+.marker::after{
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    z-index: -1;
+    border: 1px solid #434742;
+    border-radius: 10000px;
+    transform: scale(0.8);
+    animation: hereMarker 1.5s infinite ease-in-out;
+    content: '';
+}
+.marker::after{
+    animation: hereMarker 1.5s 0.3s infinite ease-in-out;
+}
+@keyframes hereMarker {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
 }
 @media screen and (max-width: 767px) {
     #map { border-radius: 8px; }
@@ -107,20 +166,35 @@
 #mapLoadWrap { display: flex; justify-content: space-between; }
 #mapLoadWrap a {
     display: inline-block;
-    width: calc((100% / 3) - 4px );
+    width: calc((100% / 3) - 8px );
     padding: 9px 0;
-    margin: 20px 0 0;
+    margin: 16px 0 0;
     font-size: 14px;
     line-height: 19px;
     color: #fff;
     border-radius: 8px;
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0,0,0,.15);
+    background: #434742;
 }
+#mapLoadWrap a span,
+#mapLoadWrap a strong { display: inline-block; vertical-align: middle; }
+
 #mapLoadWrap a:hover { opacity: 0.8; }
-#mapLoadWrap a.nv { background: #577d65; }
-#mapLoadWrap a.ka { background: #c98249; }
-#mapLoadWrap a.tm { background: #497cbe; }
+#mapLoadWrap a.nv { background: #4a5f52; }
+#mapLoadWrap a.ka { background: #766b4f; }
+#mapLoadWrap a.tm { background: #485664; }
+/* 지도 아이콘 영역 */
+#mapLoadWrap a .inv-ico {
+    display: inline-block;
+    width: 28px; height: 28px;
+    margin: -5px 0 -5px -2px;
+    padding: 6px 0;
+}
+#mapLoadWrap a .inv-ico.naver_map { background: url("../img/svg/nv_map.svg") center / contain no-repeat; }
+#mapLoadWrap a .inv-ico.kakao_map { background: url("../img/svg/ka_map.svg") center / contain no-repeat; }
+#mapLoadWrap a .inv-ico.t_map { background: url("../img/svg/tm_map.svg") center / contain no-repeat; }
+
 
 
 
@@ -217,3 +291,55 @@
 
 .modal-prev { left: 5%; }
 .modal-next { right: 5%; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 방명록 */
+
+/* marquee 컨테이너: overflow hidden */
+.marquee-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    /* 높이는 필요에 따라 조정 */
+    padding: 10px 0;
+}
+/* marquee 실제 콘텐츠 영역 */
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    /* 애니메이션 지속시간은 JS에서 동적으로 설정 */
+    animation-name: marquee;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+/* 각 메시지는 inline-block으로 가로 나열 */
+.message {
+    display: inline-block;
+    margin-right: 50px;  /* 메시지 간 간격 */
+}
+/* 키프레임: 전체 콘텐츠의 절반(원본) 길이만큼 이동 */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

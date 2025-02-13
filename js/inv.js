@@ -11,8 +11,10 @@ $(document).ready(function () {
     $(window).on("scroll", function () {
         if ($(window).scrollTop() > $(window).height() * 0.4) {
             $("#introTitle").addClass("blur");
+            $('body').addClass("scroll-on");
         } else {
             $("#introTitle").removeClass("blur");
+            $('body').removeClass("scroll-on");
         }
     });
 });
