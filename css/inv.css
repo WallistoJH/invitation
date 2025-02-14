@@ -1,6 +1,7 @@
 body {
     /*background-color: #ffffff;*/
     background-color: #f1f1f1;
+
     transition: background-color ease-in-out .3s;
     will-change: background-color;
 
@@ -21,10 +22,11 @@ body.scroll-on {
 
     /* 반복되는 컨식 그라데이션을 사용하여 체크무늬 생성 */
     background-image:
-            radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-            radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+            radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
     background-size: 8px 19px;
     background-position: 0 0, 10px 10px;
+    background-attachment: fixed;
 }
 
 
@@ -103,7 +105,7 @@ body > section {
     left: 0;
     right: 0;
     z-index: 1;
-    top: 70%;
+    top: calc(100% - 138px - 138px);
     width: 32px;
     height: 48px;
     margin: 0 auto;
@@ -115,8 +117,8 @@ body > section {
     /*box-shadow: 0 0 0 3px #333;*/
     border: 1px solid #333;
     transform: translateY(0);
-    border-top-width: 6px;
-    border-bottom-width: 4px;
+    border-top-width: 4px;
+    border-bottom-width: 2px;
 }
 #scrollIndicate:hover {opacity: .4;}
 
@@ -234,7 +236,7 @@ body > section {
 }
 #mapLoadWrap a {
     /*display: inline-block;*/
-    width: calc((100% / 3) - 8px );
+    width: calc((100% / 3) - 7px );
     padding: 6px 0;
     margin: 0;
     font-size: 14px;
@@ -270,7 +272,9 @@ body > section {
 #mapLoadWrap a .inv-ico.naver_map { background: url("../img/svg/nv_map.svg") center / contain no-repeat; }
 #mapLoadWrap a .inv-ico.kakao_map { background: url("../img/svg/ka_map.svg") center / contain no-repeat; }
 #mapLoadWrap a .inv-ico.t_map { background: url("../img/svg/tm_map.svg") center / contain no-repeat; }
-
+@media screen and (max-width: 767px) {
+    #mapLoadWrap a .inv-ico + span { padding-left: 8%; }
+}
 
 
 

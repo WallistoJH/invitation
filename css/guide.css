@@ -20,6 +20,12 @@
 p,h1,h2,h3,h4,h5,h6 { margin: 0; }
 button, .swiper-prev, .swiper-next { -webkit-tap-highlight-color: transparent; }
 button:focus, .swiper-prev:focus, .swiper-next:focus { outline: none; }
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+}
 body {
     font-family: 'Eulyoo1945', sans-serif;
     font-weight: 400;
@@ -28,6 +34,7 @@ body {
     text-align: center;
     word-break: keep-all;
 }
+main { overflow: hidden; }
 /* 컬러 */
 .color-title { color: #333; }
 .color-subtitle { color: #666; }
@@ -235,7 +242,8 @@ body {
 }
 
 .content {
-    width: calc(100% - 32px);
+    /*width: calc(100% - 32px);*/
+    width: calc(100% - 56px);
     max-width: 480px;
     padding: 56px 24px 32px;
     margin: 0 auto 64px;
@@ -257,19 +265,27 @@ body {
 }
 
 .inv-section .content {
-    transition: all .8s ease-in-out;
-    opacity: .1;
+    transition: all .3s ease-in-out;
+    opacity: 0;
     /*-webkit-filter: blur(16px);*/
     /*filter: blur(16px);*/
-    transform: translateY(20%);
+    transform: rotate(-4deg) translateX(-40%) translateY(5%);
 }
-.inv-section.on .content {
+.inv-section .content.right {
+    transform: rotate(4deg) translateX(40%) translateY(5%);
+}
+.inv-section.on .content,
+.inv-section.on .content.right{
+    transition: all .6s ease-in-out;
     opacity: 1;
     /*-webkit-filter: blur(0);*/
     /*filter: blur(0);*/
-    transform: translateY(0);
+    transform: rotate(0deg) translateX(0) translateY(0);
 }
-
+@media screen and (max-width: 767px){
+   .inv-section .content { transform: rotate(-2deg) translateX(-40%) translateY(5%); }
+    .inv-section .content.right { transform: rotate(2deg) translateX(40%) translateY(5%); }
+}
 
 .deco-line {
     font-family: 'Brachetto', sans-serif;
@@ -304,11 +320,12 @@ body {
 .kakao-pay-button {
     display: inline-block;
     min-width: 116px;
-    min-height: 40px;
+    min-height: 34px;
     background: #ffd000 url(../img/svg/ico_kakaopay.svg) center / 50% no-repeat;
-    border-radius: 6px;
+    border-radius: 100px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+    box-shadow: 0 0 0 2px #ffd000;
+    border: 1px solid #333;
 }
 @media screen and (min-width: 768px) {
     .kakao-pay-button:hover,
