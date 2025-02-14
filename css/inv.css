@@ -639,7 +639,8 @@ body > section {
     position: relative;
     width: 240px;
     margin-right: 12px;  /* 메시지 간 간격 */
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
+    border: 3px #e6e7e9 double;
     background: #fff;
     border-radius: 12px;
 }
@@ -743,7 +744,7 @@ body > section {
     font-size: 16px;
     line-height: 28px;
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid #e6e7e9;
     border-radius: 8px;
     padding: 9px 12px;
     margin: 0 0 16px;
@@ -761,5 +762,5 @@ body > section {
     margin-top: 20px;
 }
 @media screen and (max-width: 767px) {
-    #guestBook .content { overflow: visible; }
+    /*#guestBook .content { overflow: visible; }*/
 }
