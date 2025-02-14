@@ -9,26 +9,55 @@ $(document).ready(function () {
 
     // 스크롤 이벤트
     $(window).on("scroll", function () {
-        if ($(window).scrollTop() > $(window).height() * 0.3) {
+        // if ($(window).scrollTop() > $(window).height() * 0.3) {
+        if ($(window).scrollTop() > 50) {
             $("#introTitle").addClass("blur");
+            $('#scrollIndicate').addClass('on');
             $('body').addClass("scroll-on");
         } else {
             $("#introTitle").removeClass("blur");
             $('body').removeClass("scroll-on");
+            $('#scrollIndicate').removeClass('on');
         }
     });
+
+
 });
+
+
+// 각각 섹션들의 위치 조정
+$(document).ready(function(){
+    $(window).on('scroll', function(){
+        var windowHeight = $(window).height();
+        var triggerPoint = windowHeight * 0.65; // 뷰포트 높이의 75% 위치
+
+        $('.inv-section').each(function(){
+            // 요소의 상단이 브라우저의 스크롤 위치에 따라 얼마만큼 떨어져 있는지 계산
+            var elementTop = $(this).offset().top - $(window).scrollTop();
+
+            if (elementTop < triggerPoint) {
+                $(this).addClass('on');
+            } else {
+                $(this).removeClass('on');
+            }
+        });
+    });
+});
+
 
 
 
 $(document).ready(function(){
     $('#scrollIndicate').on('click', function(e) {
-        e.preventDefault(); // 링크나 다른 기본 동작 방지
+        e.preventDefault(); // 기본 동작 방지
+        var currentScroll = $(window).scrollTop();
+        var windowHeight = $(window).height() * 0.7;
         $('html, body').animate({
-            scrollTop: $(window).height()
-        }, 500); // 500ms 동안 애니메이션 효과 적용 (원하는 속도에 맞게 조절)
+            scrollTop: currentScroll + windowHeight
+        }, 500); // 500ms 애니메이션
     });
 });
+
 
 
 

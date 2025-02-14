@@ -226,6 +226,14 @@ body {
     text-decoration-color: #333;
 }
 
+
+.inv-section {
+
+}
+.inv-section.on {
+
+}
+
 .content {
     width: calc(100% - 32px);
     max-width: 480px;
@@ -234,12 +242,35 @@ body {
     overflow: hidden;
     background: rgba(255,255,255,.8);
     box-sizing: border-box;
-    border: 1px solid #f1f1f1;
+    /*border: 1px solid #f1f1f1;*/
     border-radius: 12px;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    box-shadow: 0 0 16px rgba(0,0,0,0.05);
+    /*box-shadow: 0 0 16px rgba(0,0,0,0.05);*/
+
+    border: 1px solid #e6e7e9;
+    /*box-shadow: none;*/
+    box-shadow: 0 0 0 8px #fff;
+    background: #fff;
+
+
 }
+
+.inv-section .content {
+    transition: all .8s ease-in-out;
+    opacity: .1;
+    /*-webkit-filter: blur(16px);*/
+    /*filter: blur(16px);*/
+    transform: translateY(20%);
+}
+.inv-section.on .content {
+    opacity: 1;
+    /*-webkit-filter: blur(0);*/
+    /*filter: blur(0);*/
+    transform: translateY(0);
+}
+
+
 .deco-line {
     font-family: 'Brachetto', sans-serif;
     font-weight: 400;
@@ -256,17 +287,19 @@ body {
 
 .inv-button {
     font-family: 'Eulyoo1945', sans-serif;
-    border: none;
-    padding: 13px 16px;
+    /*border: none;*/
+    padding: 10px 16px;
     min-width: 96px;
     margin: 0 0 11px;
     background: #434742;
-    border-radius: 6px;
+    border-radius: 1000px;
     color: #fff;
     font-size: 14px;
     line-height: 14px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,.15);
+    border: 1px solid #fff;
+    box-shadow: 0 0 0 2px #434742;
+    /*box-shadow: 0 4px 8px rgba(0,0,0,.15);*/
 }
 .kakao-pay-button {
     display: inline-block;
