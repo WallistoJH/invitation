@@ -269,10 +269,10 @@ main { overflow: hidden; }
     opacity: 0;
     /*-webkit-filter: blur(16px);*/
     /*filter: blur(16px);*/
-    transform: rotate(-4deg) translateX(-40%) translateY(5%);
+    transform: rotate(-4deg) translateX(-20%) translateY(5%);
 }
 .inv-section .content.right {
-    transform: rotate(4deg) translateX(40%) translateY(5%);
+    transform: rotate(4deg) translateX(20%) translateY(5%);
 }
 .inv-section.on .content,
 .inv-section.on .content.right{
@@ -281,10 +281,11 @@ main { overflow: hidden; }
     /*-webkit-filter: blur(0);*/
     /*filter: blur(0);*/
     transform: rotate(0deg) translateX(0) translateY(0);
+    transform-origin: top;
 }
 @media screen and (max-width: 767px){
-   .inv-section .content { transform: rotate(-2deg) translateX(-40%) translateY(5%); }
-    .inv-section .content.right { transform: rotate(2deg) translateX(40%) translateY(5%); }
+   .inv-section .content { transform: rotate(-2deg) translateX(-20%) translateY(5%); }
+    .inv-section .content.right { transform: rotate(2deg) translateX(20%) translateY(5%); }
 }
 
 .deco-line {
@@ -298,13 +299,13 @@ main { overflow: hidden; }
 }
 @media screen and (max-width: 767px) {
     /*.content { padding: 24px 16px 16px; }*/
-    .content { padding: 24px 20px 16px; }
+    .content { padding: 24px 12px 16px; }
 }
 
 .inv-button {
     font-family: 'Eulyoo1945', sans-serif;
     /*border: none;*/
-    padding: 10px 16px;
+    padding: 9px 16px;
     min-width: 96px;
     margin: 0 0 11px;
     background: #434742;
@@ -313,8 +314,8 @@ main { overflow: hidden; }
     font-size: 14px;
     line-height: 14px;
     cursor: pointer;
-    border: 1px solid #fff;
-    box-shadow: 0 0 0 2px #434742;
+    /*border: 1px solid #fff;*/
+    /*box-shadow: 0 0 0 2px #434742;*/
     /*box-shadow: 0 4px 8px rgba(0,0,0,.15);*/
 }
 .kakao-pay-button {

@@ -96,7 +96,7 @@
         $(".swiper-wrapper").html(imagePaths.map((src, index) => `
             <div class="swiper-slide">
                 <button type="button" onclick="clickPhoto(${index})">
-                    <img src="${src}" alt="" loading="lazy"/>
+                    <img src="${src}" alt="" loading="eager"/>
                 </button>
             </div>
         `).join(''));
