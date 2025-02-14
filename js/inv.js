@@ -1,3 +1,45 @@
+
+
+// 전역 변수로 오디오 객체 선언
+var bgMusic = null;
+
+// 배경음악 재생 함수
+function playAudio() {
+    if (!bgMusic) {
+        bgMusic = new Audio('mp3/Two_Words.mp3');
+        bgMusic.loop = true;
+    }
+    bgMusic.play().then(function() {
+        console.log("Audio is playing");
+    }).catch(function(error) {
+        console.error("Audio playback failed:", error);
+    });
+}
+
+// 배경음악 정지 함수
+function stopAudio() {
+    if (bgMusic) {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+    }
+}
+// 오디오 온/오프 토글 함수
+function toggleAudio() {
+    var btn = document.getElementById('audioToggle');
+
+    // bgMusic가 생성되어 있고 재생 중이라면 정지, 아니면 재생
+    if (bgMusic && !bgMusic.paused) {
+        stopAudio();
+        btn.textContent = "배경음악 재생";
+    } else {
+        playAudio();
+        btn.textContent = "음악끄기";
+    }
+}
+
+
+
+
 // 스크롤시 메인 블러 시작
 $(document).ready(function () {
     // 브라우저가 스크롤 위치를 기억하지 않도록 설정
@@ -8,12 +50,22 @@ $(document).ready(function () {
     // $(window).scrollTop(0);
 
     // 스크롤 이벤트
+
+    // 전역 변수로 오디오 재생 여부 플래그 설정 (최초는 false)
+    let audioPlayed = false;
+
     $(window).on("scroll", function () {
         // if ($(window).scrollTop() > $(window).height() * 0.3) {
         if ($(window).scrollTop() > 50) {
             $("#introTitle").addClass("blur");
             $('#scrollIndicate').addClass('on');
             $('body').addClass("scroll-on");
+
+            if (!audioPlayed) {
+                playAudio();
+                audioPlayed = true;  // 한 번 실행한 후 true로 변경
+            }
+
         } else {
             $("#introTitle").removeClass("blur");
             $('body').removeClass("scroll-on");
@@ -51,10 +103,10 @@ $(document).ready(function(){
     $('#scrollIndicate').on('click', function(e) {
         e.preventDefault(); // 기본 동작 방지
         var currentScroll = $(window).scrollTop();
-        var windowHeight = $(window).height() * 0.7;
+        var windowHeight = $(window).height() * 1;
         $('html, body').animate({
             scrollTop: currentScroll + windowHeight
-        }, 500); // 500ms 애니메이션
+        }, 300); // 300ms 애니메이션
     });
 });
 
@@ -132,6 +184,10 @@ updateCountdown(); // 페이지 로드 시 바로 실행
 
 
 
+// 달력 추가
+$(document).ready(function(){
+$("#calendarInclude").load("include/calendar.html", function() {});
+});
 
 
 

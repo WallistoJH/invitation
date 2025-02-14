@@ -25,6 +25,11 @@
 <main>
 <!--<h4 id="Invited" class="title-en">You're Invited</h4>-->
 
+
+    <!-- 사용자 상호작용 버튼 -->
+    <button id="audioToggle" class="body-kr inv-button" onclick="toggleAudio()">배경음악 재생</button>
+
+
 <!-- 시작 인트로 영역 -->
 <section id="introTitle" class="font-0      ">
 
@@ -46,9 +51,12 @@
 </section>
 
 
-<article id="scrollIndicate">
-    <span class="inv-ico"></span>
+<article id="scrollIndicate" onclick="toggleAudio();">
 </article>
+
+
+
+
 
 
 <!-- 인사말 -->
@@ -93,13 +101,41 @@
 </section>
 
 
+<!-- 캘린더 달력 -->
+<section id="calendar" class="inv-section dis-no1ne"  >
+    <article class="content right">
+        <!-- 콘텐츠 타이틀 -->
+        <aside class="content-title">
+            <p class="title-en">
+                Date and Time
+                <strong class="dis-block body-kr text-deco--line" style="margin-top: -4px">날짜와 시간</strong>
+            </p>
+
+            <div class="top mr-b2">
+                <p class="body-kr">
+                    <strong>2025년 3월 22일 토요일<br/></strong>
+                    <span>낮 12시 10분</span>
+                </p>
+            </div>
+
+        </aside>
+
+        <aside id="calendarInclude" class="font-0"></aside>
+
+        <div class="dis-block">
+            <p class="deco-line mr-t-1">_</p>
+        </div>
+
+    </article>
+</section>
+
 <!-- 오시는 길 -->
 <section id="contact_map" class="inv-section dis-no1ne"  >
     <article class="content">
         <!-- 콘텐츠 타이틀 -->
         <aside class="content-title">
             <p class="title-en">
-                Venue & Directions
+                Venue and Directions
                 <strong class="dis-block body-kr text-deco--line" style="margin-top: -4px">오시는 길</strong>
             </p>
 
@@ -119,18 +155,18 @@
         <div id="mapLoadWrap">
             <a class="nv body-kr" href="javascript:naverMap('더컨벤션 송파문정','37.484235','127.122730');">
                 <span class="inv-ico naver_map"></span>
-                <span>네이버맵</span>
+                <span class="color-white">네이버맵</span>
             </a>
             <a class="ka body-kr" href="javascript:kakaoMap('더컨벤션 송파문정','37.484235','127.122730');">
                 <span class="inv-ico kakao_map"></span>
-                <span>카카오맵</span>
+                <span class="color-white">카카오맵</span>
             </a>
             <a class="tm body-kr" href="javascript:tMap('더컨벤션 송파문정','37.484235','127.122730');">
                 <span class="inv-ico t_map"></span>
-                <span>티맵</span>
+                <span class="color-white">티맵</span>
             </a>
         </div>
-        <p class="body2-kr mr-t2 color-subtitle">위의 버튼을 통해 경로 탐색이 가능합니다.</p>
+        <p class="body2-kr mr-t2 color-subtitle">위의 버튼을 통해 경로를 설정해보세요</p>
         <!-- 정보 -->
 
         <aside class="content-title mr-t10">
@@ -244,7 +280,7 @@
 
 
                 <button class="accordion-button" style="background-color: #485664">
-                    <span class="body2-kr">신랑측 계좌번호</br>확인하기</span>
+                    <span class="body2-kr color-white">신랑측 계좌번호</br>확인하기</span>
                     <span class="inv-ico"></span>
                 </button>
                 <div class="accordion-content mr-t2">
@@ -275,7 +311,7 @@
             <div class="dis-inline-block right half ver-t">
 
                 <button class="accordion-button" style="background-color: #64484c;">
-                    <span class="body2-kr">신부측 계좌번호<br/>확인하기</span>
+                    <span class="body2-kr color-white">신부측 계좌번호<br/>확인하기</span>
                     <span class="inv-ico"></span>
                 </button>
                 <div class="accordion-content mr-t2">
@@ -337,7 +373,7 @@
                 <input class="body-kr" type="text" id="name" placeholder="닉네임을 적어주세요." required>
                 <textarea class="body-kr" id="message" placeholder="축복과 응원의 글을 남겨주세요 :)" required></textarea>
                 <input class="body-kr" type="password" id="password" placeholder="작성글 비밀번호 입력" required>
-                <button type="submit" class="inv-button flu"><span class="body-kr">작성한 방명록 올리기</span></button>
+                <button type="submit" class="inv-button flu"><span class="body-kr color-white">축복과 응원글 올리기</span></button>
             </form>
 
             <!-- 메시지 목록(마키 효과 적용) -->
@@ -350,7 +386,7 @@
                 <!-- marquee 효과를 적용할 컨테이너 -->
                 <div class="marquee-container">
                     <!-- JS에서 메시지 아이템들을 복제하여 삽입 -->
-                    <div class="marquee-content" id="marqueeContent"></div>
+                    <div class="marquee-content font-0" id="marqueeContent"></div>
                 </div>
             </div>
 
