@@ -1,3 +1,13 @@
+$(document).ready(function(){
+    // 페이지 로드시 스크롤 금지
+    $('body').addClass('no-scroll');
+
+    // 3초 후에 스크롤 허용 (overflow 속성 복원)
+    setTimeout(function(){
+        $('body').removeClass('no-scroll');
+    }, 3000);
+});
+
 
 
 // 전역 변수로 오디오 객체 선언
@@ -12,7 +22,7 @@ function playAudio() {
     bgMusic.play().then(function() {
         console.log("Audio is playing");
     }).catch(function(error) {
-        console.error("Audio playback failed:", error);
+        // console.error("Audio playback failed:", error);
     });
 }
 
@@ -30,7 +40,7 @@ function toggleAudio() {
     // bgMusic가 생성되어 있고 재생 중이라면 정지, 아니면 재생
     if (bgMusic && !bgMusic.paused) {
         stopAudio();
-        btn.textContent = "배경음악 재생";
+        btn.textContent = "배경음악";
     } else {
         playAudio();
         btn.textContent = "음악끄기";
@@ -47,7 +57,7 @@ $(document).ready(function () {
     //     history.scrollRestoration = "manual";
     // }
     // 페이지 로드 시 맨 위로 이동
-    // $(window).scrollTop(0);
+    $(window).scrollTop(0);
 
     // 스크롤 이벤트
 
@@ -222,5 +232,43 @@ $(document).ready(function(){
         });
     }).on('mouseleave', function() {
         $customArrow.hide();
+    });
+});
+
+
+
+
+
+
+
+
+// 방명록 인풋
+$(document).ready(function(){
+    // input, textarea에 포커스가 생기면 부모에 'on' 클래스 추가
+    $('input, textarea').on('focus', function(){
+        $(this).closest('.input-wrap').addClass('on');
+    });
+
+    // 포커스가 벗어나면 내용이 비어있을 경우 'on' 클래스 제거
+    $('input, textarea').on('blur', function(){
+        if ($(this).val().trim() === '') {
+            $(this).closest('.input-wrap').removeClass('on');
+        }
+    });
+
+    // 페이지 로드 시 이미 값이 채워진 경우에도 'on' 클래스 적용
+    $('input, textarea').each(function(){
+        if ($(this).val().trim() !== '') {
+            $(this).closest('.input-wrap').addClass('on');
+        }
+    });
+
+    // 값이 변경될 때도 실시간으로 체크 (선택사항)
+    $('input, textarea').on('input', function(){
+        if ($(this).val().trim() !== '') {
+            $(this).closest('.input-wrap').addClass('on');
+        } else {
+            $(this).closest('.input-wrap').removeClass('on');
+        }
     });
 });

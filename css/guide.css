@@ -30,7 +30,7 @@ select:focus {
 body {
     font-family: 'Eulyoo1945', sans-serif;
     font-weight: 400;
-    padding: 32px 0 120px;
+    padding: 32px 0 64px;
     margin: 0;
     text-align: center;
     word-break: keep-all;

@@ -6,6 +6,25 @@
     <meta name="format-detection" content="telephone=no, address=no, email=no" />
     <title>박재한&계유미 결혼합니다.</title>
 
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
     <meta property="og:url" content="park-kye.com">
     <meta property="og:title" content="박재한 · 계유미 결혼합니다.">
     <meta property="og:image" content="../img/output_01.jpg">
@@ -26,8 +45,13 @@
 <!--<h4 id="Invited" class="title-en">You're Invited</h4>-->
 
 
+    <section id="splash">
+        <img src="img/output_02.jpg" alt="스플래쉬"/>
+    </section>
+
+
     <!-- 사용자 상호작용 버튼 -->
-    <button id="audioToggle" class="body-kr inv-button" onclick="toggleAudio()">배경음악 재생</button>
+    <button id="audioToggle" class="body-kr inv-button" onclick="toggleAudio()">배경음악</button>
 
 
 <!-- 시작 인트로 영역 -->
@@ -280,7 +304,7 @@
 
 
                 <button class="accordion-button" style="background-color: #485664">
-                    <span class="body2-kr color-white">신랑측 계좌번호</br>확인하기</span>
+                    <strong class="body2-kr color-white">신랑측 계좌번호</strong>
                     <span class="inv-ico"></span>
                 </button>
                 <div class="accordion-content mr-t2">
@@ -311,7 +335,7 @@
             <div class="dis-inline-block right half ver-t">
 
                 <button class="accordion-button" style="background-color: #64484c;">
-                    <span class="body2-kr color-white">신부측 계좌번호<br/>확인하기</span>
+                    <strong class="body2-kr color-white">신부측 계좌번호</strong>
                     <span class="inv-ico"></span>
                 </button>
                 <div class="accordion-content mr-t2">
@@ -370,9 +394,18 @@
             <!-- Firebase SDK -->
             <!-- 방명록 폼 (비밀번호 입력 추가) -->
             <form id="guestbookForm" class="mr-t4">
-                <input class="body-kr" type="text" id="name" placeholder="닉네임을 적어주세요." required>
-                <textarea class="body-kr" id="message" placeholder="축복과 응원의 글을 남겨주세요 :)" required></textarea>
-                <input class="body-kr" type="password" id="password" placeholder="작성글 비밀번호 입력" required>
+                <div class="input-wrap">
+                    <input class="body-kr" type="text" id="name" placeholder="" required>
+                    <label for="name" class="body-kr">작성자</label>
+                </div>
+                <div class="input-wrap">
+                    <textarea class="body-kr" id="message" placeholder="" required></textarea>
+                    <label for="message" class="body-kr">축복과 응원의 글</label>
+                </div>
+                <div class="input-wrap">
+                    <input class="body-kr" type="password" id="password" placeholder="" required>
+                    <label for="password" class="body-kr">글 비밀번호</label>
+                </div>
                 <button type="submit" class="inv-button flu"><span class="body-kr color-white">축복과 응원글 올리기</span></button>
             </form>
 
@@ -394,7 +427,7 @@
 
         </aside>
 
-        <div class="dis-block">
+        <div class="dis-block mr-t-2">
             <p class="deco-line">_</p>
         </div>
 
@@ -411,9 +444,9 @@
 
 
 
-<P class="title-en">Jaehan Park</P>
+<P class="title-en pd-t8">Jaehan Park</P>
 <p class="body2-kr">
-    본 모바일 청첩장은 신랑이 직접 제작하였습니다.<br/>
+<!--    해당 모바일 청첩장은 신랑이 직접 만들었습니다.<br/>-->
     ©2025 Jaehan Park, All rights reserved.
 </p>
 
@@ -810,7 +843,9 @@
 
 <!-- 모달 팝업 -->
 <div id="imageModal" class="modal" style="display: none;">
-    <p class="body-kr" style=" position: absolute; top: 16px; right: 56px; text-align: right; pointer-events: none;"><span>이미지 닫기</span></p>
+    <p class="body-kr" style=" position: absolute; top: 16px; right: 56px; text-align: right; pointer-events: none;">
+<!--        <span>이미지 닫기</span>-->
+    </p>
     <span id="imageModalClose" class="modal-close"></span>
     <img class="modal-content" id="modalImage" alt="모달 이미지">
 
@@ -818,7 +853,7 @@
     <button class="modal-prev"></button>
     <button class="modal-next"></button>
 
-    <span id="imageModalCloseButton" class="modal-close">이미지 닫기</span>
+<!--    <span id="imageModalCloseButton" class="modal-close">이미지 닫기</span>-->
 </div>
 
 </main>
