@@ -9,7 +9,6 @@ $(document).ready(function(){
 });
 
 
-
 // 전역 변수로 오디오 객체 선언
 var bgMusic = null;
 
@@ -57,7 +56,7 @@ $(document).ready(function () {
     //     history.scrollRestoration = "manual";
     // }
     // 페이지 로드 시 맨 위로 이동
-    $(window).scrollTop(0);
+    // $(window).scrollTop(0);
 
     // 스크롤 이벤트
 

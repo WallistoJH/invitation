@@ -271,7 +271,36 @@
             </div>
         </aside>
         <!-- 콘텐츠 내용 -->
-        <aside id="photoWrap" class="mr-t4"></aside>
+        <aside id="photoWrap" class="mr-t4">
+
+            <div id="photoWrap--swiper" class="swiper">
+                <!-- 페이지네이션 -->
+                <div class="swiper-pagination"></div>
+                <!-- 갤러리 리스트 -->
+                <div class="swiper-wrapper"></div>
+                <!-- 양쪽 버튼 -->
+                <aside class="arrow-button font-0 mr-t2" data-list-count="unabled">
+                    <button type="button" class="swiper-prev inv-button">
+                        <span class="dis-inline-block ver-m inv-ico"></span>
+                        <span class="dis-inline-block ver-m body2-kr color-white">이전</span>
+                    </button>
+                    <button type="button" class="swiper-next inv-button">
+                        <span class="dis-inline-block ver-m body2-kr color-white">다음</span>
+                        <span class="dis-inline-block ver-m inv-ico"></span>
+                    </button>
+                </aside>
+
+                <p class="body2-kr color-subtitle mr-t2">위의 버튼을 통해 다양하게 보실 수 있습니다.</p>
+
+            </div>
+
+
+
+
+
+
+
+        </aside>
 
         <p class="deco-line mr-t-1">_</p>
     </article>
@@ -451,6 +480,88 @@
 </p>
 
 
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let currentIndex = 0;
+        const imagePaths = [
+            "img/output_01.jpg", "img/output_02.jpg", "img/output_03.jpg",
+            "img/o_0.jpg", "img/o_1.jpg", "img/o_2.jpg", "img/o_3.jpg",
+            "img/o_4.jpg", "img/o_5.jpg",
+            "img/f_1.jpg", "img/f_2.jpg", "img/f_3.jpg", "img/f_4.jpg",
+            "img/b_0.jpg", "img/b_1.jpg", "img/b_2.jpg"
+        ];
+
+        $(document).ready(function() {
+            const modal = $("#imageModal");
+            const modalImage = $("#modalImage");
+            const modalPrev = $(".modal-prev");
+            const modalNext = $(".modal-next");
+            const modalClose = $(".modal-close");
+
+            // 이미지 클릭 시 모달 열기
+            window.clickPhoto = function(index) {
+                currentIndex = index;
+                updateModalImage();
+                modal.fadeIn();
+            };
+
+            // 모달 이미지 업데이트
+            function updateModalImage() {
+                modalImage.attr("src", imagePaths[currentIndex]);
+
+                // 버튼 비활성화 처리 (맨 앞 / 맨 뒤)
+                if (currentIndex === 0) {
+                    modalPrev.fadeOut();
+                } else {
+                    modalPrev.fadeIn();
+                }
+
+                if (currentIndex === imagePaths.length - 1) {
+                    modalNext.fadeOut();
+                } else {
+                    modalNext.fadeIn();
+                }
+            }
+
+            // 이전 이미지 보기
+            modalPrev.click(function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateModalImage();
+                }
+            });
+
+            // 다음 이미지 보기
+            modalNext.click(function() {
+                if (currentIndex < imagePaths.length - 1) {
+                    currentIndex++;
+                    updateModalImage();
+                }
+            });
+
+            // 모달 닫기
+            modalClose.click(function() {
+                modal.fadeOut();
+            });
+
+            // 모달 바깥 클릭 시 닫기
+            modal.click(function(event) {
+                if (event.target === this) { modal.fadeOut(); }
+            });
+
+            // Swiper 내부 이미지 버튼 생성
+            $(".swiper-wrapper").html(imagePaths.map((src, index) => `
+            <div class="swiper-slide">
+                <button type="button" onclick="clickPhoto(${index})">
+                    <img src="${src}" alt="" loading="eager"/>
+                </button>
+            </div>
+        `).join(''));
+        });
+    </script>
 
 
 <script type="module">
@@ -792,18 +903,12 @@
 <script>
 
     $(document).ready(function() {
-        $("#photoWrap").load("include/gallery.html", function() {
             const swiper = new Swiper("#photoWrap--swiper", {
                 slidesPerView: "auto",
                 spaceBetween: 8,
                 speed: 300,
-                loop: false,
-                // autoplay: {
-                //     delay: 3000,
-                //     disableOnInteraction: false,
-                // },
+                loop: true,
                 centeredSlides: true,
-                // 기본값: 모바일 (767px 이하)에서는 터치 활성화
                 allowTouchMove: true,
                 simulateTouch: true,
                 grabCursor: true,
@@ -815,11 +920,19 @@
                 },
                 pagination: {
                     el: '.swiper-pagination',
-                    type: 'fraction',  // Fraction 타입 (예: 1/4)
+                    type: 'fraction',
+                    renderFraction: function (currentClass, totalClass) {
+                        // 실제 슬라이드 총 수 = 전체 슬라이드 수 - (복제된 슬라이드 수 * 2)
+                        const realTotal = this.slides.length - (this.loopedSlides * 2);
+                        // realIndex는 실제 현재 슬라이드의 인덱스 (0부터 시작)
+                        const currentIndex = this.realIndex + 1;
+                        return '<span class="' + currentClass + '">' + currentIndex + '</span>' +
+                            ' / ' +
+                            '<span class="' + totalClass + '">' + realTotal + '</span>';
+                    }
                 },
                 cssMode: false,
                 effect: 'slide',
-                // Breakpoints 옵션: 768px 이상에서는 터치 비활성화
                 breakpoints: {
                     768: {
                         allowTouchMove: false,
@@ -828,8 +941,14 @@
                     }
                 },
             });
-        });
+
+            // gallery.html 내 모든 이미지와 요소들이 로드될 시간을 고려하여 update()를 딜레이 후 호출
+            setTimeout(function(){
+                swiper.update();
+            }, 500);
     });
+
+
 
 </script>
 
