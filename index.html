@@ -624,7 +624,7 @@
     });
 
     // 메시지 삭제 함수
-    const deleteMessage = async (messageId) => {
+    window.deleteMessage = async function (messageId) {  // <- 전역 함수로 등록
         const enteredPassword = prompt("삭제하려면 비밀번호를 입력하세요:");
         if (!enteredPassword) return;
 
@@ -643,6 +643,7 @@
             console.error('메시지 삭제 중 오류 발생:', error);
         }
     };
+
 
 
     // 메시지 목록 실시간 업데이트 (마키 효과용)
